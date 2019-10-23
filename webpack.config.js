@@ -10,6 +10,9 @@ var config = {
     filename: "bundle.js",
     publicPath: "/app"
   },
+  devServer: {
+    historyApiFallback: true
+  },
   module: {
     rules: [
       {
@@ -17,9 +20,11 @@ var config = {
         include: SRC_DIR,
         loader: "babel-loader",
         query: {
-          presets: ["@babel/env", "@babel/react"]
+          presets: ["@babel/env", "@babel/react"],
+          plugins: ["@babel/plugin-proposal-class-properties"]
         }
-      }
+      },
+      { test: /\.css$/, loader: "style-loader!css-loader" }
     ]
   }
 };
