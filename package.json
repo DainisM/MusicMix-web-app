@@ -1,0 +1,37 @@
+{
+  "name": "musicmix_web_app",
+  "version": "1.0.0",
+  "description": "Music streaming web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build",
+    "build": "webpack -d && copy src\\index.html dist\\index.html /Y && webpack-dev-server --content-base src/ --inline --hot",
+    "build:prod": "webpack -p && copy src\\index.html dist\\index.html"
+  },
+  "keywords": [
+    "ReactJS",
+    "MusicMix",
+    "music",
+    "music-streaming",
+    "web app"
+  ],
+  "author": "Dainis Moisejenko",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-stage-2": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
