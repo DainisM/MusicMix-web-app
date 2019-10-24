@@ -24,7 +24,8 @@ var config = {
           plugins: ["@babel/plugin-proposal-class-properties"]
         }
       },
-      { test: /\.css$/, loader: "style-loader!css-loader" }
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.(png|jpg)$/, loader: "url-loader?limit=8192" }
     ]
   }
 };

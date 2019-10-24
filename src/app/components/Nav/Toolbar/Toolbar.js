@@ -9,7 +9,12 @@ const Toolbar = props => (
         <DrawerToggleButton click={props.drawerClickHandler} />
       </div>
       <div className="toolbar__logo">
-        <a href="/">THE LOGO</a>
+        <a href="/">
+          <img
+            src={require("../../../images/MusicMix_logo.png")}
+            alt="MusicMix Logo"
+          />
+        </a>
       </div>
       <div className="spacer" />
       <div className="toolbar__navigation-items">
@@ -17,9 +22,9 @@ const Toolbar = props => (
           <li>
             <a href="/help">Help</a>
           </li>
-          <li>
+          {/* <li>
             <a href="/download">Download</a>
-          </li>
+          </li> */}
           <div className="space">|</div>
           <li>
             <a href="/signup">Sign up</a>

@@ -1,0 +1,14 @@
+.catchPhrase {
+  background-image: url("../images/Home_background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  padding: 15rem 0 15rem 0;
+}
+
+.home {
+  height: 100vh;
+}

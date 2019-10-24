@@ -8,7 +8,14 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-sm logo">
-              <a href="/">THE LOGO</a>
+              <a href="/">
+                <img
+                  src={require("../../images/MusicMix_logo.png")}
+                  width="100"
+                  height="50"
+                  alt="MusicMix Logo"
+                />
+              </a>
               <p></p>
               <p>© 2019 MusicMix</p>
             </div>
