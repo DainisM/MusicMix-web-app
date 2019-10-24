@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 
-import Navigation from "./components/Nav/Navigation";
+import NavBar from "./components/Nav/NavBar";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
   render() {
-    return <Navigation />;
+    return (
+      <div>
+        <NavBar />
+        <Footer />
+      </div>
+    );
   }
 }
 

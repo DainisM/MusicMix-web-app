@@ -1,0 +1,45 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 0.5rem;
+  width: 100%;
+  background: #003a44;
+}
+
+.row {
+  align-items: center;
+  justify-items: center;
+}
+
+.logo p {
+  color: rgb(177, 177, 177);
+}
+
+.logo a,
+.links a,
+.social a {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 0.5rem;
+}
+
+.fa {
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.links a:hover,
+.links a:active,
+.social a:hover,
+.social a:active {
+  color: #00ffff;
+  text-decoration: none;
+}

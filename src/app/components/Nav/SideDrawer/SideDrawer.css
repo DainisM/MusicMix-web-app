@@ -1,6 +1,6 @@
 .side-drawer {
   height: 100%;
-  background: white;
+  background: #f0ffff;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -16,6 +16,22 @@
   transform: translateX(0);
 }
 
+.side-drawer button {
+  justify-content: right;
+  background: none;
+  border: none;
+  display: flex;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin: 0.9rem 0;
+  list-style: none;
+  color: #521751;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
 .side-drawer ul {
   height: 100%;
   list-style: none;
@@ -25,7 +41,7 @@
 }
 
 .side-drawer li {
-  margin: 0.5rem 0;
+  margin: 0.9rem 0;
 }
 
 .side-drawer a {
@@ -35,11 +51,12 @@
 }
 
 .side-drawer a:hover,
-.side-drawer a:active {
+.side-drawer a:active .side-drawer button:hover,
+.side-drawer button:active {
   color: #fa923f;
 }
 
-@media (min-width: 562px) {
+@media (min-width: 576px) {
   .side-drawer {
     display: none;
   }

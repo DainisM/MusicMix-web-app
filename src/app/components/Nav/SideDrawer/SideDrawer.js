@@ -13,12 +13,13 @@ const sideDrawer = props => {
         <li>
           <a href="/">Home</a>
         </li>
+        {/* <li>
+          <a href="/download">Download</a>
+        </li> */}
         <li>
-          <a href="/about">About</a>
+          <a href="/signup">Sign up</a>
         </li>
-        <li>
-          <a href="/api">Api</a>
-        </li>
+        <button>Login</button>
       </ul>
     </nav>
   );
