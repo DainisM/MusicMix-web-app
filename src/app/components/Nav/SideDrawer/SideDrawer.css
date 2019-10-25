@@ -25,7 +25,7 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  margin: 0.9rem 0;
+  margin: 0.9rem 0.5rem;
   list-style: none;
   color: #521751;
   text-decoration: none;
@@ -51,7 +51,8 @@
 }
 
 .side-drawer a:hover,
-.side-drawer a:active .side-drawer button:hover,
+.side-drawer a:active,
+.side-drawer button:hover,
 .side-drawer button:active {
   color: #fa923f;
 }

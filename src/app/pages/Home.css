@@ -1,3 +1,8 @@
+.home {
+  height: 100%;
+  box-shadow: 75px 75px 50px 0 #005766 inset, -75px -25px 50px 0 #005766 inset;
+}
+
 .catchPhrase {
   background-image: url("../images/Home_background.jpg");
   background-size: cover;
@@ -5,10 +10,128 @@
   height: 600px;
   text-align: center;
   justify-content: center;
-  color: white;
+  color: rgb(236, 204, 204);
+  text-shadow: 3px 3px #005766;
   padding: 15rem 0 15rem 0;
 }
 
-.home {
-  height: 100vh;
+.catchPhrase h3,
+.catchPhrase h4 {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+.musicPlayer {
+  padding-top: 1.5rem;
+  /* display: none; */
+}
+
+.playerRow {
+  margin: 1rem;
+  justify-content: center;
+}
+
+.playerRow p {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #005766;
+  text-shadow: 3px 3px rgb(236, 204, 204);
+  font-size: 1.5rem;
+}
+
+.musicPlayerBtn {
+  color: #00cccc;
+  background-color: #005766;
+  border-radius: 2rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 0.3rem;
+  border: none;
+  margin-bottom: 5rem;
+}
+
+.musicPlayerBtn:hover {
+  background-color: #00cccc;
+  color: #005766;
+  box-shadow: 0px 8px 15px #005766;
+}
+
+.information {
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.information h4 {
+  color: #005766;
+  font-weight: bolder;
+}
+
+.genres p,
+.playlists p,
+.collections p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.genres img,
+.playlists img,
+.collections img {
+  margin: 0.5rem;
+}
+
+.genres,
+.playlists,
+.collections {
+  word-wrap: normal;
+  padding: 0.7rem;
+  text-align: center;
+}
+
+.signup-teaser {
+  /* display: none; */
+  margin: 5rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.signup-teaser h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #005766;
+  text-shadow: 3px 3px rgb(236, 204, 204);
+  font-size: 2rem;
+}
+
+.signup-teaser p {
+  font-size: 1.2rem;
+}
+
+.signupLink {
+  color: #005766;
+  background-color: #00cccc;
+  border-radius: 2rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 0.3rem;
+  border: none;
+}
+
+.signupLink:hover {
+  background-color: #005766;
+  color: #00cccc;
+  box-shadow: 0px 8px 15px #00cccc;
+}
+
+.login-teaser {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.login-teaser p {
+  font-size: 0.8rem;
+}
+
+.login-teaser button {
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0.7rem 0.5rem;
 }
