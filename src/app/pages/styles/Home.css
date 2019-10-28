@@ -4,7 +4,7 @@
 }
 
 .catchPhrase {
-  background-image: url("../images/Home_background.jpg");
+  background-image: url("../../images/Home_background.jpg");
   background-size: cover;
   background-position: center;
   height: 600px;
