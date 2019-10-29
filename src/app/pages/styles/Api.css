@@ -5,4 +5,9 @@
 
 .menu {
   position: fixed;
+  line-height: 1rem;
+}
+
+.submenu {
+  line-height: 0.5rem;
 }
