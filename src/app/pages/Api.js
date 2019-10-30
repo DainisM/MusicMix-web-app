@@ -1,96 +1,17 @@
 import React from "react";
 import "./styles/Api.css";
+import SideNav from "../components/Nav/ApiPage/SideNav";
+import TopNav from "../components/Nav/ApiPage/TopNav";
 
 const Api = () => {
   return (
     <div className="wrap-content">
-      <aside className="menu">
-        <ul>
-          <li>
-            <a href="/api">Intro</a>
-          </li>
-          <li>
-            <a href="#requests">Requests</a>
-          </li>
-          <li>
-            <a href="#response-status-codes">Response Status Codes</a>
-          </li>
-          <li>
-            <a href="#authorization">Authorization</a>
-          </li>
-          <li>
-            {" "}
-            <a href="#api-endpoints">API Endpoints</a>
-            <ul className="submenu">
-              <li>
-                <a href="#get-users-profile">GET User´s profile</a>
-              </li>
-              <li>
-                <a href="#patch-users-profile">PATCH User´s profile</a>
-              </li>
-              <li>
-                <a href="#get-tracks">GET Tracks</a>
-              </li>
-              <li>
-                <a href="#get-trackId">GET Specific Track</a>
-              </li>
-              <li>
-                <a href="#get-artists">GET Artists</a>
-              </li>
-              <li>
-                <a href="#get-specific-artist">GET Specific Artist</a>
-              </li>
-              <li>
-                <a href="#get-all-artist-tracks">GET All Artist Tracks</a>
-              </li>
-              <li>
-                <a href="#search-tracks">Search for tracks</a>
-              </li>
-              <li>
-                <a href="#search-artists">Search for artists</a>
-              </li>
-              <li>
-                <a href="#get-newest-tracks">GET Newest Tracks</a>
-              </li>
-              <li>
-                <a href="#get-genres">GET Genres</a>
-              </li>
-              <li>
-                <a href="#get-specific-genre">GET Genre Tracks</a>
-              </li>
-              <li>
-                <a href="#get-moods">GET Moods</a>
-              </li>
-              <li>
-                <a href="#get-specific-moods">GET Specific Mood</a>
-              </li>
-              <li>
-                <a href="#get-user-playlists">GET User Playlists</a>
-              </li>
-              <li>
-                <a href="#get-user-playlist-tracks">GET User Playlist Tracks</a>
-              </li>
-              <li>
-                <a href="#post-user-playlist">POST User Playlist</a>
-              </li>
-              <li>
-                <a href="#patch-user-playlist">PATCH User Playlist</a>
-              </li>
-              <li>
-                <a href="#remove-playlist-track">Remove Playlist Track</a>
-              </li>
-              <li>
-                <a href="#delete-user-playlist">DELETE User Playlist</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </aside>
-
+      <SideNav />
+      <TopNav />
       <div className="main">
         <section className="container-fluid">
           <div className="col-lg-12">
-            <h1>Api</h1>
+            <h3 id="api">API</h3>
             <p>
               Based on simple REST principles, the MusicMix Web API endpoints
               return JSON metadata about music artists, albums, and tracks,
@@ -134,7 +55,7 @@ const Api = () => {
                 </tr>
               </tbody>
             </table>
-            <h3 id="response-status-codes">Response Status Codes</h3>
+            <h3 id="response-status-codes">Response Codes</h3>
             <p>
               API uses the following response status codes, as defined in the{" "}
               <a href="https://www.ietf.org/rfc/rfc2616.txt" target="_blank">
@@ -1827,7 +1748,7 @@ const Api = () => {
             <br />
             <div className="row">
               <div className="col-lg-6 left">
-                <h5 id="get-user-playlist-tracks">GET User Playlist Tracks</h5>
+                <h5 id="get-user-playlist-tracks">GET Playlist Tracks</h5>
                 <em>
                   To get all the tracks for the playlist of the user, use userID
                   and playlistID:
@@ -2125,7 +2046,8 @@ const Api = () => {
                   </tbody>
                 </table>
                 <p>
-                  API will receive playlistID and userID from the DELETE request.
+                  API will receive playlistID and userID from the DELETE
+                  request.
                 </p>
               </div>
               <div className="col-lg-6 right">
@@ -2144,7 +2066,8 @@ const Api = () => {
                   To delete a playlist for the user, playlistID and userID:
                 </em>
                 <p>
-                  API will receive playlistID and userID from the DELETE request.
+                  API will receive playlistID and userID from the DELETE
+                  request.
                 </p>
               </div>
               <div className="col-lg-6 right">
