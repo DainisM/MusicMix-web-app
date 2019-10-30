@@ -28,7 +28,10 @@ const Footer = () => {
                   <a href="/api">Api</a>
                 </li>
                 <li>
-                  <a href="/policies">Policies</a>
+                  <a href="/privacy">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="/terms">Terms and Conditions</a>
                 </li>
               </ul>
             </div>

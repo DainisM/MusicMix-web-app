@@ -9,7 +9,8 @@ import Download from "./pages/Download";
 import SignUp from "./pages/SignUp";
 import About from "./pages/About";
 import Api from "./pages/Api";
-import Policies from "./pages/Policies";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import Help from "./pages/Help";
 
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
             <Route path="/signup" component={SignUp} />
             <Route path="/about" component={About} />
             <Route path="/api" component={Api} />
-            <Route path="/policies" component={Policies} />
+            <Route path="/privacy" component={Privacy} />
+            <Route path="/terms" component={Terms} />
             <Route path="/help" component={Help} />
           </Switch>
         </Router>
