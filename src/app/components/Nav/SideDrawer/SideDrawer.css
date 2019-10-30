@@ -30,6 +30,7 @@
   color: #521751;
   text-decoration: none;
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .side-drawer ul {
@@ -57,7 +58,7 @@
   color: #fa923f;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 610px) {
   .side-drawer {
     display: none;
   }

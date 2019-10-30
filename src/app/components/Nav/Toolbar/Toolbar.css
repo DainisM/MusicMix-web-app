@@ -42,6 +42,7 @@
   padding: 0 0.5rem;
   list-style: none;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .toolbar__navigation-items ul {
@@ -69,13 +70,13 @@
   color: #00ffff;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 609px) {
   .toolbar__navigation-items {
     display: none;
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 610px) {
   .toolbar__toggle-button {
     display: none;
   }
