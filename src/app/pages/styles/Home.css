@@ -1,29 +1,31 @@
-.home {
+.content {
+  margin: 0;
+  padding: 0;
   height: 100%;
-  box-shadow: 75px 75px 50px 0 #005766 inset, -75px -25px 50px 0 #005766 inset;
 }
 
 .catchPhrase {
   background-image: url("../../images/Home_background.jpg");
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 60vh;
   text-align: center;
   justify-content: center;
   color: rgb(236, 204, 204);
   text-shadow: 3px 3px #005766;
+  margin: 0;
   padding: 15rem 0 15rem 0;
 }
 
 .catchPhrase h3,
 .catchPhrase h4 {
-  font-size: 3rem;
+  font-size: 5vh;
   font-weight: bolder;
 }
 
 .musicPlayer {
   padding-top: 1.5rem;
-  /* display: none; */
+  display: none;
 }
 
 .playerRow {
@@ -57,7 +59,11 @@
 
 .information {
   padding: 0.5rem;
-  margin-top: 0.3rem;
+  padding-top: 3rem;
+}
+
+.information .row {
+  margin: 0;
 }
 
 .information h4 {
@@ -85,9 +91,54 @@
   text-align: center;
 }
 
+.listen-to-music {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  background-color: #005766;
+}
+
+.listen-to-music h3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #00cccc;
+  text-shadow: 1px 1px rgb(56, 43, 243);
+}
+
+.news {
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem;
+}
+
+.news img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.news h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #00cccc;
+  text-shadow: 3px 3px #005766;
+  font-size: 3rem;
+}
+
+.news p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
 .signup-teaser {
   /* display: none; */
-  margin: 5rem;
+  margin: 2rem;
   text-align: center;
   justify-content: center;
 }
@@ -120,9 +171,7 @@
 }
 
 .login-teaser {
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 5rem;
+  margin: 1.5rem 0 3rem 0;
   text-align: center;
   justify-content: center;
 }
@@ -131,7 +180,17 @@
   font-size: 0.8rem;
 }
 
-.login-teaser button {
+.loginLink {
+  border: none;
   font-size: 0.8rem;
   margin: 0 0.5rem 0.7rem 0.5rem;
+}
+
+@media (max-width: 609px) {
+  .listen-web-image {
+    margin: 0;
+    padding: 0;
+    width: 245px;
+    height: 160px;
+  }
 }
