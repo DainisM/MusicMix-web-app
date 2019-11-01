@@ -38,13 +38,25 @@ const Footer = () => {
             <div className="col-sm social">
               <ul>
                 <li>
-                  <a className="icon fa fa-facebook" href="#"></a>
+                  <a
+                    className="icon fa fa-facebook"
+                    target="blank"
+                    href="https://facebook.com"
+                  ></a>
                 </li>
                 <li>
-                  <a className="icon fa fa-instagram" href="#"></a>
+                  <a
+                    className="icon fa fa-instagram"
+                    target="blank"
+                    href="https://instagram.com"
+                  ></a>
                 </li>
                 <li>
-                  <a className="icon fa fa-twitter" href="#"></a>
+                  <a
+                    className="icon fa fa-twitter"
+                    target="blank"
+                    href="https://twitter.com"
+                  ></a>
                 </li>
               </ul>
             </div>

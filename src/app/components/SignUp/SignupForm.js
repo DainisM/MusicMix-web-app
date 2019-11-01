@@ -42,8 +42,8 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <h1>Sign up</h1>
+      <form className="signup-form" onSubmit={this.onSubmit}>
+        <h3>Sign up with your emil address</h3>
         <div className="form-group">
           <label className="control-label">Email</label>
           <input
@@ -89,7 +89,7 @@ class SignupForm extends React.Component {
           <br />
           <label className="gender-label">
             <input
-              className="form-control"
+              className="form-control gender-btn"
               type="radio"
               name="gender"
               value="Male"
@@ -99,7 +99,7 @@ class SignupForm extends React.Component {
           </label>
           <label className="gender-label">
             <input
-              className="form-control"
+              className="form-control gender-btn"
               type="radio"
               name="gender"
               value="Female"
@@ -124,20 +124,22 @@ class SignupForm extends React.Component {
 
         <br />
         <br />
-        <div className="form-group terms">
-          <input
-            onChange={this.handleCheck}
-            type="checkbox"
-            name="terms"
-            className="form-control terms-checkbox"
-          />
-          <p>
-            I agree to the <a href="/terms">Terms and Conditions of Use</a>{" "}
-          </p>
+        <div className="row form-group">
+          <div className="terms">
+            <input
+              onChange={this.handleCheck}
+              type="checkbox"
+              name="terms"
+              className="form-control terms-checkbox"
+            />
+            <p>
+              I agree to the <a href="/terms">Terms and Conditions of Use</a>{" "}
+            </p>
+          </div>
         </div>
 
         <div className="form-group">
-          <button className="btn btn-primary btn-lg">Sign up</button>
+          <button className="btn btn-lg signup-btn">Sign up</button>
         </div>
       </form>
     );

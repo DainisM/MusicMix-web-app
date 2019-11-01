@@ -1,3 +1,45 @@
+.signup-form {
+  justify-content: center;
+}
+
+.signup-btn {
+  font-weight: bold;
+  color: #005766;
+  background-color: #00cccc;
+}
+
+.signup-btn:hover {
+  background-color: #005766;
+  color: #00cccc;
+  box-shadow: 0px 8px 15px #00cccc;
+}
+
+.main-form {
+  margin: auto;
+}
+
 .gender-label {
   margin: 1.5rem;
+}
+
+.gender-btn {
+  font-size: 0.5rem;
+}
+
+.login-teaser {
+  text-align: left;
+  margin: 0;
+  margin-bottom: 3rem;
+}
+
+.terms {
+  display: inline;
+  margin-left: 1rem;
+}
+
+.terms-checkbox {
+  width: 20px;
+  float: left;
+  font-size: 0.3rem;
+  margin-right: 1rem;
 }
