@@ -19,7 +19,9 @@ const sideDrawer = props => {
         <li>
           <a href="/signup">Sign up</a>
         </li>
-        <button>Login</button>
+        <li>
+          <a href="/login">Login</a>
+        </li>
       </ul>
     </nav>
   );

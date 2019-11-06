@@ -5,6 +5,14 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="container">
+        <div className="row signup-logo">
+          <a href="/">
+            <img
+              src={require("../images/MusicMix_logo.png")}
+              alt="MuscixMix logo"
+            />
+          </a>
+        </div>
         <div className="row">
           <div className="col-md-5 main-form">
             <SignupForm />

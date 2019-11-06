@@ -109,16 +109,12 @@ class Home extends React.Component {
               Search for tracks, build your own playlists and listen to
               pre-created playlists
             </p>
-            <Link to="/signup">
-              <button className="signupLink" type="button">
-                Create account
-              </button>
-            </Link>
+            <button className="signupLink" type="button">
+              <a href="/signup">Create account</a>
+            </button>
             <div className="row login-teaser">
               <p>Already have an account?</p>
-              <button className="loginLink" type="button">
-                Log in
-              </button>
+              <a href="/login">Log in</a>
             </div>
           </div>
         </div>

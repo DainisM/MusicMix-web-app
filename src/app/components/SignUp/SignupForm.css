@@ -43,3 +43,19 @@
   font-size: 0.3rem;
   margin-right: 1rem;
 }
+
+.validationMsg {
+  color: red;
+  font-style: italic;
+}
+
+.userCreated {
+  color: green;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.signup-logo {
+  border-bottom: 1px solid grey;
+  justify-content: center;
+}

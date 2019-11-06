@@ -34,17 +34,6 @@
   font-size: 1.5rem;
 }
 
-.toolbar__navigation-items button {
-  background: none;
-  color: white;
-  border: none;
-  display: inline-flex;
-  padding: 0 0.5rem;
-  list-style: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 .toolbar__navigation-items ul {
   list-style: none;
   margin: 0;
@@ -64,9 +53,7 @@
 }
 
 .toolbar__navigation-items a:hover,
-.toolbar__navigation-items a:active,
-.toolbar__navigation-items button:hover,
-.toolbar__navigation-items button:active {
+.toolbar__navigation-items a:active {
   color: #00ffff;
 }
 

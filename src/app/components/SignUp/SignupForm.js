@@ -4,21 +4,36 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./SignupForm.css";
 
+const url = "http://music-mix.live/users/signup";
+const header = new Headers();
+header.append("Content-Type", "application/json");
+const request = new Request(url);
+
+const initialState = {
+  email: "",
+  username: "",
+  password: "",
+  passwordConfirmation: "",
+  birthday: "",
+  gender: "",
+  terms: false,
+  emailError: "",
+  usernameError: "",
+  passError: "",
+  passConfError: "",
+  birthdayError: "",
+  genderError: "",
+  termsError: "",
+  signupSuccessful: ""
+};
+
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      email: "",
-      username: "",
-      password: "",
-      passwordConfirmation: "",
-      birthday: "",
-      gender: "",
-      terms: false
-    };
+    this.state = initialState;
 
     this.handleUserInput = this.handleUserInput.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleBirthday = this.handleBirthday.bind(this);
   }
@@ -27,9 +42,109 @@ class SignupForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSubmit(e) {
+  validate = () => {
+    let emailError = "";
+    let usernameError = "";
+    let passError = "";
+    let passConfError = "";
+    let birthdayError = "";
+    let genderError = "";
+    let termsError = "";
+
+    if (!this.state.email.includes("@")) {
+      emailError = "Invalid email";
+    }
+
+    if (!this.state.username) {
+      usernameError = "Invalid username";
+    }
+
+    if (
+      !this.state.password.match(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+      )
+    ) {
+      passError =
+        "Password must contain at least 8 characters and contain at least 1 number, 1 uppercase and 1 lowercase character";
+    }
+
+    if (!this.state.password.match(this.state.passwordConfirmation)) {
+      passConfError = "Password does not match";
+    }
+
+    if (!this.state.gender) {
+      genderError = "Please choose a gender";
+    }
+
+    if (!this.state.birthday) {
+      birthdayError = "Please choose your birthday";
+    } else if (
+      this.state.birthday === moment(new Date()).format("YYYY-MM-DD")
+    ) {
+      birthdayError = "Invalid date";
+    }
+
+    if (!this.state.terms == true) {
+      termsError = "Please read and agree to our Terms and Conditions of Use";
+    }
+
+    if (
+      emailError ||
+      usernameError ||
+      passError ||
+      passConfError ||
+      genderError ||
+      birthdayError ||
+      termsError
+    ) {
+      this.setState({
+        emailError,
+        usernameError,
+        passError,
+        passConfError,
+        genderError,
+        birthdayError,
+        termsError
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+      const myInit = {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.email,
+          username: this.state.username,
+          password: this.state.password,
+          birthday: this.state.birthday,
+          gender: this.state.gender
+        }),
+        headers: header
+      };
+
+      fetch(request, myInit)
+        .then(response => {
+          if (response.status === 201) {
+            let signupSuccessful =
+              "User created successfully! Please login to use MusicMix.";
+            this.setState({ signupSuccessful });
+          }
+          console.log(response);
+          return response.json();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      //Clear the form
+      this.setState(initialState);
+    }
   }
 
   handleBirthday = date => {
@@ -42,7 +157,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <form className="signup-form" onSubmit={this.onSubmit}>
+      <form className="signup-form" onSubmit={this.handleSubmit}>
         <h3>Sign up with your emil address</h3>
         <div className="form-group">
           <label className="control-label">Email</label>
@@ -53,6 +168,7 @@ class SignupForm extends React.Component {
             name="email"
             className="form-control"
           />
+          <p className="validationMsg">{this.state.emailError}</p>
         </div>
         <div className="form-group">
           <label className="control-label">Username</label>
@@ -63,6 +179,7 @@ class SignupForm extends React.Component {
             name="username"
             className="form-control"
           />
+          <p className="validationMsg">{this.state.usernameError}</p>
         </div>
         <div className="form-group">
           <label className="control-label">Password</label>
@@ -73,6 +190,7 @@ class SignupForm extends React.Component {
             name="password"
             className="form-control"
           />
+          <p className="validationMsg">{this.state.passError}</p>
         </div>
         <div className="form-group">
           <label className="control-label">Confirm password</label>
@@ -83,6 +201,7 @@ class SignupForm extends React.Component {
             name="passwordConfirmation"
             className="form-control"
           />
+          <p className="validationMsg">{this.state.passConfError}</p>
         </div>
         <div className="form-group">
           <label className="control-label">Gender</label>
@@ -107,6 +226,7 @@ class SignupForm extends React.Component {
             />
             Female
           </label>
+          <p className="validationMsg">{this.state.genderError}</p>
         </div>
 
         <label className="control-label">Birthday</label>
@@ -121,8 +241,7 @@ class SignupForm extends React.Component {
           showYearDropdown
           dropdownMode="select"
         />
-
-        <br />
+        <p className="validationMsg">{this.state.birthdayError}</p>
         <br />
         <div className="row form-group">
           <div className="terms">
@@ -135,12 +254,14 @@ class SignupForm extends React.Component {
             <p>
               I agree to the <a href="/terms">Terms and Conditions of Use</a>{" "}
             </p>
+            <p className="validationMsg">{this.state.termsError}</p>
           </div>
         </div>
 
         <div className="form-group">
           <button className="btn btn-lg signup-btn">Sign up</button>
         </div>
+        <p className="userCreated">{this.state.signupSuccessful}</p>
       </form>
     );
   }

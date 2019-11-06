@@ -16,23 +16,6 @@
   transform: translateX(0);
 }
 
-.side-drawer button {
-  justify-content: right;
-  background: none;
-  border: none;
-  display: flex;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  margin: 0.9rem 0.5rem;
-  list-style: none;
-  color: #521751;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
 .side-drawer ul {
   height: 100%;
   list-style: none;
@@ -52,9 +35,7 @@
 }
 
 .side-drawer a:hover,
-.side-drawer a:active,
-.side-drawer button:hover,
-.side-drawer button:active {
+.side-drawer a:active {
   color: #fa923f;
 }
 

@@ -29,8 +29,10 @@ const Toolbar = props => (
           <li>
             <a href="/signup">Sign up</a>
           </li>
+          <li>
+            <a href="/login">Login</a>
+          </li>
         </ul>
-        <button>Login</button>
       </div>
     </nav>
   </header>
