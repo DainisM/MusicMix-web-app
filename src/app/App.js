@@ -13,17 +13,19 @@ import Api from "./pages/Api";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Help from "./pages/Help";
+import MusicPlayer from "./pages/MusicPlayer";
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        {location.pathname !== "/login" && location.pathname !== "/signup" && (
-          <NavBar />
-        )}
+        {location.pathname !== "/player" &&
+          location.pathname !== "/login" &&
+          location.pathname !== "/signup" && <NavBar />}
         <Router>
           <Switch>
             <Route path="/" component={Home} exact />
+            <Route path="/player" component={MusicPlayer} />
             <Route path="/download" component={Download} />
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
@@ -34,9 +36,9 @@ class App extends Component {
             <Route path="/help" component={Help} />
           </Switch>
         </Router>
-        {location.pathname !== "/login" && location.pathname !== "/signup" && (
-          <Footer />
-        )}
+        {location.pathname !== "/player" &&
+          location.pathname !== "/login" &&
+          location.pathname !== "/signup" && <Footer />}
       </div>
     );
   }

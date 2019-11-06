@@ -18,9 +18,11 @@ class Home extends React.Component {
               <p>Jump in a world full of good music now</p>
             </div>
             <div className="row playerRow">
-              <button className="musicPlayerBtn " type="button">
-                Open Music Player
-              </button>
+              <a href="/player">
+                <button className="musicPlayerBtn " type="button">
+                  Open Music Player
+                </button>
+              </a>
             </div>
           </div>
 
@@ -109,9 +111,12 @@ class Home extends React.Component {
               Search for tracks, build your own playlists and listen to
               pre-created playlists
             </p>
-            <button className="signupLink" type="button">
-              <a href="/signup">Create account</a>
-            </button>
+            <a href="/signup">
+              <button className="signupLink" type="button">
+                Create account
+              </button>
+            </a>
+
             <div className="row login-teaser">
               <p>Already have an account?</p>
               <a href="/login">Log in</a>

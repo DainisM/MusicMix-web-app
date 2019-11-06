@@ -24,7 +24,8 @@ const initialState = {
   birthdayError: "",
   genderError: "",
   termsError: "",
-  signupSuccessful: ""
+  signupSuccessful: "",
+  singupError: ""
 };
 
 class SignupForm extends React.Component {
@@ -135,6 +136,9 @@ class SignupForm extends React.Component {
             let signupSuccessful =
               "User created successfully! Please login to use MusicMix.";
             this.setState({ signupSuccessful });
+          } else if (response.status === 409) {
+            let singupError = "Email already exists!";
+            this.setState({ singupError });
           }
           console.log(response);
           return response.json();
@@ -257,7 +261,7 @@ class SignupForm extends React.Component {
             <p className="validationMsg">{this.state.termsError}</p>
           </div>
         </div>
-
+        <p className="signupError">{this.state.singupError}</p>
         <div className="form-group">
           <button className="btn btn-lg signup-btn">Sign up</button>
         </div>

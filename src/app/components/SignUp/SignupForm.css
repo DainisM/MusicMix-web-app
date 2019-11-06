@@ -49,6 +49,12 @@
   font-style: italic;
 }
 
+.signupError {
+  color: red;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .userCreated {
   color: green;
   font-size: 1.3rem;

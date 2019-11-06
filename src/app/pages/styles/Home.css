@@ -25,6 +25,7 @@
 
 .musicPlayer {
   padding-top: 1.5rem;
+  margin-bottom: 3rem;
   display: none;
 }
 
@@ -48,7 +49,6 @@
   font-weight: bold;
   padding: 0.3rem;
   border: none;
-  margin-bottom: 5rem;
 }
 
 .musicPlayerBtn:hover {

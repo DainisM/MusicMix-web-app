@@ -101,6 +101,14 @@ const Api = () => {
                   </td>
                 </tr>
                 <tr>
+                  <td>409</td>
+                  <td>
+                    Conflict - The request could not be completed due to a
+                    conflict with the current state of the target resource, fx.
+                    resource already exists
+                  </td>
+                </tr>
+                <tr>
                   <td>500</td>
                   <td>
                     Internal Server Error - A genereic error message, given when
