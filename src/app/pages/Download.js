@@ -1,10 +1,13 @@
 import React from "react";
+import DefaultLayout from "./Layouts/DefaultLayout";
 
 const Download = () => {
   return (
-    <div>
-      <h3>Download</h3>
-    </div>
+    <DefaultLayout>
+      <div>
+        <h3>Download</h3>
+      </div>
+    </DefaultLayout>
   );
 };
 

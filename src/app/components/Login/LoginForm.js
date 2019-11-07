@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from 'react-router';
+import { withRouter } from "react-router";
 import "./LoginForm.css";
 
 const url = "http://music-mix.live/users/login";
@@ -25,6 +25,28 @@ class LoginForm extends React.Component {
 
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirect = this.redirect.bind(this);
+  }
+
+  componentWillMount() {
+    localStorage.getItem("userToken") &&
+      this.setState({
+        userToken: localStorage.getItem("userToken")
+      });
+    localStorage.getItem("userId") &&
+      this.setState({
+        userId: localStorage.getItem("userId")
+      });
+    localStorage.getItem("userName") &&
+      this.setState({
+        userName: localStorage.getItem("userName")
+      });
+  }
+
+  redirect() {
+    setTimeout(() => {
+      this.props.history.push("/");
+    }, 500);
   }
 
   handleUserInput(e) {
@@ -50,7 +72,7 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit(e) {
-    let self = this
+    let self = this;
     e.preventDefault();
     const isValid = this.validate();
     if (isValid) {
@@ -73,7 +95,11 @@ class LoginForm extends React.Component {
         })
         .then(function(response) {
           response.json().then(function(data) {
-            self.setState({userToken: data.token, userId: data.id, userName: data.username});
+            self.setState({
+              userToken: data.token,
+              userId: data.id,
+              userName: data.username
+            });
           });
         })
         .catch(error => {
@@ -81,15 +107,15 @@ class LoginForm extends React.Component {
         });
       //Clear the form
       this.setState(initialState);
-      this.props.history.push('/');
+      this.redirect();
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('userId', nextState.userId);
-    localStorage.setItem('userName', nextState.userName);
-    localStorage.setItem('userToken', nextState.userToken);
-    localStorage.setItem('userDate', Date.now());
+    localStorage.setItem("userId", nextState.userId);
+    localStorage.setItem("userName", nextState.userName);
+    localStorage.setItem("userToken", nextState.userToken);
+    localStorage.setItem("userDate", Date.now());
   }
 
   render() {
