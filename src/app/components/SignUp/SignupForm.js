@@ -1,5 +1,6 @@
 import moment from "moment";
 import React from "react";
+import { withRouter } from 'react-router';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./SignupForm.css";
@@ -37,7 +38,14 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleBirthday = this.handleBirthday.bind(this);
+    this.redirect = this.redirect.bind(this);
   }
+
+  redirect() {
+    setTimeout(() => {
+        this.props.history.push('/login')
+    }, 3000)
+}
 
   handleUserInput(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -134,7 +142,7 @@ class SignupForm extends React.Component {
         .then(response => {
           if (response.status === 201) {
             let signupSuccessful =
-              "User created successfully! Please login to use MusicMix.";
+              "User created successfully! Redirecting to login.";
             this.setState({ signupSuccessful });
           } else if (response.status === 409) {
             let singupError = "Email already exists!";
@@ -148,6 +156,7 @@ class SignupForm extends React.Component {
         });
       //Clear the form
       this.setState(initialState);
+      this.redirect();
     }
   }
 
@@ -271,4 +280,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SignupForm;
+export default withRouter (SignupForm);

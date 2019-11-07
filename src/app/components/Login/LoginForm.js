@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from 'react-router';
 import "./LoginForm.css";
 
 const url = "http://music-mix.live/users/login";
@@ -11,7 +12,10 @@ const initialState = {
   password: "",
   authError: "",
   loginSuccessful: "",
-  inputError: ""
+  inputError: "",
+  userToken: "",
+  userId: "",
+  userName: ""
 };
 
 class LoginForm extends React.Component {
@@ -46,6 +50,7 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit(e) {
+    let self = this
     e.preventDefault();
     const isValid = this.validate();
     if (isValid) {
@@ -57,7 +62,6 @@ class LoginForm extends React.Component {
         }),
         headers: header
       };
-
       fetch(request, myInit)
         .then(response => {
           if (response.status == 401) {
@@ -65,24 +69,27 @@ class LoginForm extends React.Component {
             this.setState({ authError });
           }
           console.log(response);
-          return response.json();
+          return response;
         })
-        .then(function(data) {
-          console.log(
-            "Token: " +
-              data.token +
-              ",  ID:" +
-              data.id +
-              ", Username: " +
-              data.username
-          );
+        .then(function(response) {
+          response.json().then(function(data) {
+            self.setState({userToken: data.token, userId: data.id, userName: data.username});
+          });
         })
         .catch(error => {
           console.log(error);
         });
       //Clear the form
       this.setState(initialState);
+      this.props.history.push('/');
     }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('userId', nextState.userId);
+    localStorage.setItem('userName', nextState.userName);
+    localStorage.setItem('userToken', nextState.userToken);
+    localStorage.setItem('userDate', Date.now());
   }
 
   render() {
@@ -122,4 +129,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

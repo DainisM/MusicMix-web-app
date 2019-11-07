@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router';
 import "./styles/Home.css";
 
 class Home extends React.Component {
@@ -128,4 +129,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);
