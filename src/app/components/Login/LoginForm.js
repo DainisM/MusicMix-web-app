@@ -15,7 +15,8 @@ const initialState = {
   inputError: "",
   userToken: "",
   userId: "",
-  userName: ""
+  userName: "",
+  userLogged: false
 };
 
 class LoginForm extends React.Component {
@@ -98,7 +99,8 @@ class LoginForm extends React.Component {
             self.setState({
               userToken: data.token,
               userId: data.id,
-              userName: data.username
+              userName: data.username,
+              userLogged: true
             });
           });
         })
@@ -115,7 +117,7 @@ class LoginForm extends React.Component {
     localStorage.setItem("userId", nextState.userId);
     localStorage.setItem("userName", nextState.userName);
     localStorage.setItem("userToken", nextState.userToken);
-    localStorage.setItem("userDate", Date.now());
+    localStorage.setItem("userLogged", nextState.userLogged);
   }
 
   render() {

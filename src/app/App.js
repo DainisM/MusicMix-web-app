@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
-import NavBar from "./components/Nav/NavBar";
-import Footer from "./components/Footer/Footer";
-
 import Home from "./pages/Home";
 import Download from "./pages/Download";
 import SignUp from "./pages/SignUp";
@@ -15,6 +12,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Help from "./pages/Help";
 import MusicPlayer from "./pages/MusicPlayer";
+import Profile from "./pages/Profile";
 
 const history = createBrowserHistory();
 
@@ -29,6 +27,7 @@ class App extends Component {
             <Route path="/download" component={Download} />
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
+            <Route path="/profile" component={Profile} />
             <Route path="/about" component={About} />
             <Route path="/api" component={Api} />
             <Route path="/privacy" component={Privacy} />

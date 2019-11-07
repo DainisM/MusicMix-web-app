@@ -42,7 +42,7 @@
 }
 
 .toolbar__navigation-items li {
-  padding: 0 0.5rem;
+  padding: 0;
 }
 
 .toolbar__navigation-items a {
@@ -54,6 +54,34 @@
 
 .toolbar__navigation-items a:hover,
 .toolbar__navigation-items a:active {
+  color: #00ffff;
+}
+
+.profile {
+  justify-content: center;
+}
+
+.profileImg {
+  margin: 0;
+  margin-right: 0.5rem;
+}
+
+.profileLink {
+  margin: 0;
+}
+
+.logoutbutton {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  border: none;
+  background: none;
+  margin: 0;
+}
+
+.logoutbutton:hover {
   color: #00ffff;
 }
 

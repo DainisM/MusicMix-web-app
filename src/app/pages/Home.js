@@ -4,8 +4,6 @@ import "./styles/Home.css";
 import DefaultLayout from "./Layouts/DefaultLayout";
 
 class Home extends React.Component {
-  handlePageChange() {}
-
   render() {
     return (
       <DefaultLayout>
@@ -15,7 +13,14 @@ class Home extends React.Component {
             <h4>Tons of different music for every vibe</h4>
           </div>
           <div className="content">
-            <div className="musicPlayer">
+            <div
+              className="musicPlayer"
+              style={{
+                display: localStorage.getItem("userLogged", true)
+                  ? "block"
+                  : "none"
+              }}
+            >
               <div className="row playerRow">
                 <p>Jump in a world full of good music now</p>
               </div>
@@ -107,7 +112,14 @@ class Home extends React.Component {
               <img src={require("../images/mobile-version.jpg")} alt="" />
             </div>
 
-            <div className="signup-teaser">
+            <div
+              className="signup-teaser"
+              style={{
+                display: localStorage.getItem("userLogged", true)
+                  ? "none"
+                  : "block"
+              }}
+            >
               <h3>Try MusicMix for free</h3>
               <p>
                 Search for tracks, build your own playlists and listen to

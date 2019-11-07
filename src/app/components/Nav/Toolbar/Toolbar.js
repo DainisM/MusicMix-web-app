@@ -26,12 +26,66 @@ const Toolbar = props => (
             <a href="/download">Download</a>
           </li> */}
           <div className="space">|</div>
+          <div className="row" className="profile">
+            <li
+              style={{
+                display: localStorage.getItem("userLogged", true)
+                  ? "block"
+                  : "none"
+              }}
+            >
+              <a href="/profile" className="profileLink">
+                <img
+                  className="profileImg"
+                  src={require("../../../images/UserIcon.png")}
+                  alt="Profile icon"
+                  width="25"
+                  height="25"
+                />
+                {localStorage.getItem("userName")}
+              </a>
+              {/* <a href="/profile">{localStorage.getItem("userName")}</a> */}
+            </li>
+          </div>
           <li>
-            <a href="/signup">Sign up</a>
+            <a
+              href="/signup"
+              style={{
+                display: localStorage.getItem("userLogged", true)
+                  ? "none"
+                  : "block"
+              }}
+            >
+              Sign up
+            </a>
           </li>
-          <li>
-            <a href="/login">Login</a>
+          <li className="loginLink">
+            <a
+              href="/login"
+              style={{
+                display: localStorage.getItem("userLogged", true)
+                  ? "none"
+                  : "block"
+              }}
+            >
+              Login
+            </a>
           </li>
+          <a
+            href="#"
+            style={{
+              display: localStorage.getItem("userLogged", true)
+                ? "block"
+                : "none"
+            }}
+          >
+            <button
+              className="logoutbutton"
+              //onClick={window.localStorage.clear()}
+            >
+              Log out
+            </button>
+          </a>
         </ul>
       </div>
     </nav>
