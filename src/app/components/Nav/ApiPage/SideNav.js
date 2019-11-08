@@ -3,7 +3,7 @@ import React from "react";
 const SideNav = () => {
   return (
     <aside className="menu">
-      <ul>
+      <ul className="mainItems">
         <li>
           <a href="#api">Intro</a>
         </li>

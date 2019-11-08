@@ -119,6 +119,14 @@ const Api = () => {
                       when no more specific message is suitable.
                     </td>
                   </tr>
+                  <tr>
+                    <td>503</td>
+                    <td>
+                      The server is currently unable to handle the request due
+                      to a temporary overload or scheduled maintenance, which
+                      will likely be alleviated after some delay.
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <h3 id="authorization">Authorization</h3>

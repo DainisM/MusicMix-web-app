@@ -16,9 +16,7 @@ class Home extends React.Component {
             <div
               className="musicPlayer"
               style={{
-                display: localStorage.getItem("userLogged", true)
-                  ? "block"
-                  : "none"
+                display: localStorage.getItem("userId") ? "block" : "none"
               }}
             >
               <div className="row playerRow">
@@ -59,9 +57,8 @@ class Home extends React.Component {
                     height="256"
                   />
                   <p>
-                    Original playlists hand-picked by our editors, who are
-                    constantly scouring the globe to find and make the best
-                    playlist for every mood
+                    Hand-picked playlists by our editors, who are scouring the
+                    globe to find and make the best playlist for every mood
                   </p>
                 </div>
                 <div className="col-lg-4 playlists">
@@ -115,9 +112,7 @@ class Home extends React.Component {
             <div
               className="signup-teaser"
               style={{
-                display: localStorage.getItem("userLogged", true)
-                  ? "none"
-                  : "block"
+                display: localStorage.getItem("userId") ? "none" : "block"
               }}
             >
               <h3>Try MusicMix for free</h3>

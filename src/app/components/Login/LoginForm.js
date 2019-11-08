@@ -15,8 +15,7 @@ const initialState = {
   inputError: "",
   userToken: "",
   userId: "",
-  userName: "",
-  userLogged: false
+  userName: ""
 };
 
 class LoginForm extends React.Component {
@@ -87,29 +86,30 @@ class LoginForm extends React.Component {
       };
       fetch(request, myInit)
         .then(response => {
-          if (response.status == 401) {
+          if (response.ok) {
+            console.log(response);
+            response.json().then(function(data) {
+              self.setState({
+                userToken: data.token,
+                userId: data.id,
+                userName: data.username,
+                userLogged: true
+              });
+            });
+            //Clear the form
+            this.setState(initialState);
+            this.redirect();
+          } else if (response.status == 401) {
             let authError = "Email and/or password incorrect!";
             this.setState({ authError });
           }
-          console.log(response);
-          return response;
-        })
-        .then(function(response) {
-          response.json().then(function(data) {
-            self.setState({
-              userToken: data.token,
-              userId: data.id,
-              userName: data.username,
-              userLogged: true
-            });
-          });
         })
         .catch(error => {
           console.log(error);
+          let authError =
+            "Service temporarily unavailable. Please try again later or contact server admin.";
+          this.setState({ authError });
         });
-      //Clear the form
-      this.setState(initialState);
-      this.redirect();
     }
   }
 
@@ -117,7 +117,7 @@ class LoginForm extends React.Component {
     localStorage.setItem("userId", nextState.userId);
     localStorage.setItem("userName", nextState.userName);
     localStorage.setItem("userToken", nextState.userToken);
-    localStorage.setItem("userLogged", nextState.userLogged);
+    localStorage.setItem("userDate", Date.now());
   }
 
   render() {

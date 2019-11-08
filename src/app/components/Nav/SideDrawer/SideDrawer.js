@@ -16,12 +16,40 @@ const sideDrawer = props => {
         {/* <li>
           <a href="/download">Download</a>
         </li> */}
-        <li>
+        <li
+          style={{
+            display: localStorage.getItem("userId") ? "block" : "none"
+          }}
+        >
+          <a href="/profile">Profile</a>
+        </li>
+        <li
+          style={{
+            display: localStorage.getItem("userId") ? "none" : "block"
+          }}
+        >
           <a href="/signup">Sign up</a>
         </li>
-        <li>
+        <li
+          style={{
+            display: localStorage.getItem("userId") ? "none" : "block"
+          }}
+        >
           <a href="/login">Login</a>
         </li>
+        <a
+          href="/"
+          style={{
+            display: localStorage.getItem("userId") ? "block" : "none"
+          }}
+        >
+          <button
+            className="logoutbutton-sideDrawer"
+            onClick={() => window.localStorage.clear()}
+          >
+            Logout
+          </button>
+        </a>
       </ul>
     </nav>
   );

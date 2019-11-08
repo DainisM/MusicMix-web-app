@@ -8,8 +8,18 @@ html {
 }
 
 .menu {
+  margin: 0;
+  padding: 0;
   height: 100%;
   position: fixed;
+}
+
+.mainItems {
+  line-height: 0.5rem;
+}
+
+.submenu {
+  font-size: 0.8rem;
   line-height: 1rem;
 }
 

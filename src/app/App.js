@@ -17,6 +17,24 @@ import Profile from "./pages/Profile";
 const history = createBrowserHistory();
 
 class App extends Component {
+  componentDidMount() {
+    const date = localStorage.getItem("userDate");
+    const userDate = +new Date(parseInt(date));
+    const now = +new Date();
+
+    const dataAge = Math.round((now - userDate) / (1000 * 60)); // in minutes
+    const tooOld = dataAge >= 480;
+
+    if (tooOld) {
+      alert("Login timeout! Please log in again!");
+      console.log(userDate);
+      console.log(now);
+      console.log(dataAge);
+      history.push("/login");
+      localStorage.clear();
+    }
+  }
+
   render() {
     return (
       <div className="app">

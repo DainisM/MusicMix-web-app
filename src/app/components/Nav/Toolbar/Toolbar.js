@@ -29,9 +29,7 @@ const Toolbar = props => (
           <div className="row" className="profile">
             <li
               style={{
-                display: localStorage.getItem("userLogged", true)
-                  ? "block"
-                  : "none"
+                display: localStorage.getItem("userId") ? "block" : "none"
               }}
             >
               <a href="/profile" className="profileLink">
@@ -51,9 +49,7 @@ const Toolbar = props => (
             <a
               href="/signup"
               style={{
-                display: localStorage.getItem("userLogged", true)
-                  ? "none"
-                  : "block"
+                display: localStorage.getItem("userId") ? "none" : "block"
               }}
             >
               Sign up
@@ -63,25 +59,21 @@ const Toolbar = props => (
             <a
               href="/login"
               style={{
-                display: localStorage.getItem("userLogged", true)
-                  ? "none"
-                  : "block"
+                display: localStorage.getItem("userId") ? "none" : "block"
               }}
             >
               Login
             </a>
           </li>
           <a
-            href="#"
+            href="/"
             style={{
-              display: localStorage.getItem("userLogged", true)
-                ? "block"
-                : "none"
+              display: localStorage.getItem("userId") ? "block" : "none"
             }}
           >
             <button
               className="logoutbutton"
-              //onClick={window.localStorage.clear()}
+              onClick={() => window.localStorage.clear()}
             >
               Log out
             </button>
