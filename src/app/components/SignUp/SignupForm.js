@@ -1,6 +1,6 @@
 import moment from "moment";
 import React from "react";
-import { withRouter } from 'react-router';
+import { withRouter } from "react-router";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./SignupForm.css";
@@ -43,9 +43,9 @@ class SignupForm extends React.Component {
 
   redirect() {
     setTimeout(() => {
-        this.props.history.push('/login')
-    }, 3000)
-}
+      this.props.history.push("/login");
+    }, 3000);
+  }
 
   handleUserInput(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -66,6 +66,10 @@ class SignupForm extends React.Component {
 
     if (!this.state.username) {
       usernameError = "Invalid username";
+    }
+
+    if (this.state.username.length > 10 || this.state.username.length < 3) {
+      usernameError = "Username must be between 3 and 10 characters long";
     }
 
     if (
@@ -280,4 +284,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default withRouter (SignupForm);
+export default withRouter(SignupForm);
