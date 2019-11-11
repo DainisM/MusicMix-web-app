@@ -25,13 +25,15 @@ class App extends Component {
     const dataAge = Math.round((now - userDate) / (1000 * 60)); // in minutes
     const tooOld = dataAge >= 480;
 
-    if (tooOld) {
-      alert("Login timeout! Please log in again!");
-      console.log(userDate);
-      console.log(now);
-      console.log(dataAge);
-      history.push("/login");
-      localStorage.clear();
+    if (localStorage.getItem("userId")) {
+      if (tooOld) {
+        alert("Login timeout! Please log in again!");
+        console.log(userDate);
+        console.log(now);
+        console.log(dataAge);
+        history.push("/login");
+        localStorage.clear();
+      }
     }
   }
 

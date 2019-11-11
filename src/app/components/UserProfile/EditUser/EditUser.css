@@ -1,0 +1,22 @@
+.EditUserBtn {
+  color: #00cccc;
+  background-color: #005766;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.3rem;
+  border: none;
+}
+
+.EditUserBtn:hover {
+  background-color: #00cccc;
+  color: #005766;
+  box-shadow: 0px 8px 15px #005766;
+}
+
+.editMsg {
+  color: #005766;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
