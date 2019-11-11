@@ -386,15 +386,6 @@ const Api = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td>password</td>
-                        <td>string</td>
-                        <td>
-                          <em>Optional.</em>
-                          <br />
-                          The new password for the user
-                        </td>
-                      </tr>
-                      <tr>
                         <td>username</td>
                         <td>string</td>
                         <td>
@@ -452,6 +443,41 @@ const Api = () => {
                   </code>
                 </div>
               </div>
+              <br />
+              <div className="row">
+                <div className="col-lg-6 left">
+                  <h5 id="patch-users-pass">PATCH Users´s password</h5>
+                  <em>To edit users password body parameters:</em>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Request Body Data</th>
+                        <th>Value Type</th>
+                        <th>Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>password</td>
+                        <td>string</td>
+                        <td>
+                          <em>Optional.</em>
+                          <br />
+                          The new password for the user
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="col-lg-6 right">
+                  <code className="language-curl-command">
+                    curl -X PATCH
+                    "https://music-mix.live/users/pass/5db6d23f8890ec179f09c699"
+                    -H "Authorization: Bearer &#91;your JWT token&#93;"
+                  </code>
+                </div>
+              </div>
+              <br />
               <br />
               <div className="row">
                 <div className="col-lg-6 left">

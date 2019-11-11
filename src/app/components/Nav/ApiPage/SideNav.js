@@ -27,6 +27,9 @@ const SideNav = () => {
               <a href="#patch-users-profile">PATCH User´s profile</a>
             </li>
             <li>
+              <a href="#patch-users-pass">PATCH User´s password</a>
+            </li>
+            <li>
               <a href="#get-tracks">GET Tracks</a>
             </li>
             <li>
