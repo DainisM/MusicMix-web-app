@@ -1,0 +1,111 @@
+/* .musicPlayerMain {
+  width: 100%;
+} */
+
+.musicPlayerMain a {
+  color: black;
+}
+
+.musicPlayerMain a:hover {
+  color: #00cccc;
+}
+
+.musicPlayerSideMenu {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  height: calc(100vh - 100px);
+  background-color: #005766;
+  overflow-y: auto;
+}
+
+.MusicplayerTopNav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  justify-content: center;
+  background-color: #00758a;
+}
+
+.MusicplayerTopNav a {
+  text-align: center;
+  padding: 0 3rem 0 3rem;
+}
+
+.MusicplayerProfileInfo {
+  bottom: 0;
+  text-align: center;
+}
+
+.MusicplayerProfileInfo button {
+  margin-top: 1rem;
+}
+
+.audioPlayer {
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  width: 100%;
+  background-color: #00cccc;
+}
+
+.Browse,
+.Genres,
+.Moods,
+.Search {
+  background: #00758a;
+  background: -moz-linear-gradient(
+    top,
+    #00758a 22%,
+    #00adad 100%,
+    #7db9e8 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #00758a 22%,
+    #00adad 100%,
+    #7db9e8 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    #00758a 22%,
+    #00adad 100%,
+    #7db9e8 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005766', endColorstr='#7db9e8',GradientType=0 );
+  margin: 0;
+  padding: 0;
+  top: 0;
+  width: calc(100vw - 250px);
+  height: calc(100vh - 100px);
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.SearchInput {
+  margin: 3rem;
+  width: 40rem;
+  border-radius: 20px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

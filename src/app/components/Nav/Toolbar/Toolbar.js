@@ -26,7 +26,7 @@ const Toolbar = props => (
             <a href="/download">Download</a>
           </li> */}
           <div className="space">|</div>
-          <div className="row" className="profile">
+          <div className="profile">
             <li
               style={{
                 display: localStorage.getItem("userId") ? "block" : "none"

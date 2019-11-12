@@ -31,7 +31,7 @@ html {
   background-color: #01788d;
 }
 
-#navbar a {
+.navbar a {
   float: left;
   display: block;
   text-align: center;
