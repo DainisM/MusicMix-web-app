@@ -1,5 +1,5 @@
 import React from "react";
-import Playlists from "./PlaylistList";
+import Playlists from "../Playlists/PlaylistList";
 
 const MusicplayerSideNav = () => {
   return (
@@ -7,7 +7,7 @@ const MusicplayerSideNav = () => {
       <div className="MusicplayerLogo">
         <a href="/player">
           <img
-            src={require("../../images/MusicMix_logo.png")}
+            src={require("../../../images/MusicMix_logo.png")}
             alt="MusicMix Logo"
           />
         </a>
@@ -36,7 +36,7 @@ const MusicplayerSideNav = () => {
         <a href="/profile" className="profilelink-musicplayer">
           <img
             className="profileImg-musicplayer"
-            src={require("../../images/UserIcon.png")}
+            src={require("../../../images/UserIcon.png")}
             alt="Profile icon"
             width="25"
             height="25"
@@ -51,6 +51,16 @@ const MusicplayerSideNav = () => {
           Log out
         </button>
       </div>
+      <a
+        style={{
+          display: localStorage.getItem("userId") ? "none" : "block"
+        }}
+        href="/login"
+      >
+        <button className="MusicPlayerLoginLink" type="button">
+          Login
+        </button>
+      </a>
     </aside>
   );
 };

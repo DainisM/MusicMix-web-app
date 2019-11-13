@@ -1,6 +1,6 @@
 import React from "react";
 import MusicPlayerLayout from "../../pages/Layouts/MusicPlayerLayout";
-import MusicplayerTopNav from "./MusicplayerTopNav";
+import MusicplayerTopNav from "./Nav/MusicplayerTopNav";
 
 const Moods = () => {
   return (

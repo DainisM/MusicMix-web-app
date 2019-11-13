@@ -1,0 +1,89 @@
+.modal {
+  font-size: 12px;
+  min-width: 300px;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.CreatePlaylistPopup {
+  text-align: center;
+  border: none;
+  background-color: #00adad;
+}
+
+.CreatePlaylistPopup .row {
+  font-weight: 600;
+  justify-content: center;
+}
+
+.CreatePlaylistPopup button {
+  margin: 0.5rem;
+}
+
+.CreatePlaylistPopup label {
+  margin-right: 1rem;
+}
+
+.playlistImage {
+  max-width: 60%;
+}
+
+.playlistName,
+.playlistDescription {
+  color: #022930;
+  font-weight: 500;
+  opacity: 80%;
+  background-color: #d3fdfd;
+}
+
+.createPalylist-close {
+  color: #005766;
+  background-color: #d3fdfd;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+}
+
+.createPalylist-close:hover {
+  color: #005766;
+  background-color: #d3fdfd;
+  box-shadow: 0px 8px 15px #005766;
+}
+
+.createPalylist-save {
+  color: #00cccc;
+  background-color: #005766;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+}
+
+.createPalylist-save:hover {
+  color: #005766;
+  background-color: #00cccc;
+  box-shadow: 0px 8px 15px #005766;
+}
+
+.playlistError {
+  color: darkred;
+}
+
+.playlistMsg {
+  color: #005766;
+}

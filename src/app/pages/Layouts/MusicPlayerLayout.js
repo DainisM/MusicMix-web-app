@@ -1,5 +1,5 @@
 import React from "react";
-import MusicplayerSideNav from "../../components/MusicPlayer/MusicplayerSideNav";
+import MusicplayerSideNav from "../../components/MusicPlayer/Nav/MusicplayerSideNav";
 import AudioPlayer from "../../components/MusicPlayer/AudioPlayer";
 
 const MusicPlayerLayout = ({ children }) => (
