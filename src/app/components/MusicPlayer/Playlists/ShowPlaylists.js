@@ -5,7 +5,7 @@ import "./ShowPlaylists.css";
 
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
-const url = "http://music-mix.live/playlists/users/" + userid + "";
+const url = "http://api.music-mix.live/playlists/users/" + userid + "";
 const authString = "Bearer " + usertoken;
 
 class ShowPlaylists extends React.Component {

@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./SignupForm.css";
 
-const url = "http://music-mix.live/users/signup";
+const url = "http://api.music-mix.live/users/signup";
 const header = new Headers();
 header.append("Content-Type", "application/json");
 const request = new Request(url);

@@ -6,7 +6,7 @@ import "./EditUser.css";
 
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
-const url = "http://music-mix.live/users/" + userid;
+const url = "http://api.music-mix.live/users/" + userid;
 const request = new Request(url);
 const header = new Headers();
 header.append("Content-Type", "application/json");

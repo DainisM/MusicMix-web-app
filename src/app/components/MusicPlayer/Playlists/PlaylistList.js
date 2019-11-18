@@ -16,7 +16,7 @@ const initialState = {
 
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
-const url = "http://music-mix.live/playlists/users/" + userid + "";
+const url = "http://api.music-mix.live/playlists/users/" + userid + "";
 const request = new Request(url);
 const header = new Headers();
 header.append("Authorization", "Bearer " + usertoken);

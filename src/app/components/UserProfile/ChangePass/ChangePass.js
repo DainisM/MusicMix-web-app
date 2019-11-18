@@ -5,8 +5,8 @@ import "./ChangePass.css";
 
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
-const Geturl = "http://music-mix.live/users/" + userid + "";
-const Passurl = "http://music-mix.live/users/pass/" + userid + "";
+const Geturl = "http://api.music-mix.live/users/" + userid + "";
+const Passurl = "http://api.music-mix.live/users/pass/" + userid + "";
 const request = new Request(Passurl);
 const header = new Headers();
 header.append("Content-Type", "application/json");

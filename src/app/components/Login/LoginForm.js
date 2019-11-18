@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import "./LoginForm.css";
 
-const url = "http://music-mix.live/users/login";
+const url = "http://api.music-mix.live/users/login";
 const header = new Headers();
 header.append("Content-Type", "application/json");
 const request = new Request(url);

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 import MusicPlayerLayout from "../../../pages/Layouts/MusicPlayerLayout";
 import "./Playlist.css";
 
@@ -13,7 +13,8 @@ const initalState = {
   playlist_description: "",
   playlist_trackCount: "",
   tracks: [],
-  imageUrl: ""
+  imageUrl: "",
+  trackId: "trackId"
 };
 
 class Playlist extends React.Component {
@@ -35,7 +36,7 @@ class Playlist extends React.Component {
   renderPlaylist() {
     axios
       .get(
-        "http://music-mix.live/playlists/" +
+        "http://api.music-mix.live/playlists/" +
           this.props.match.params.playlistId +
           "/users/" +
           userid +
@@ -43,11 +44,8 @@ class Playlist extends React.Component {
         { headers: { Authorization: authString } }
       )
       .then(res => {
-        console.log(res.data.response.playlist[0]);
         this.setState({
-          imageUrl:
-            "http://music-mix.live/" +
-            res.data.response.playlist[0].image.split("..")[1],
+          imageUrl: res.data.response.playlist[0].image,
           playlist_name: res.data.response.playlist[0].name,
           playlist_description: res.data.response.playlist[0].description,
           playlist_trackCount: res.data.response.playlist[0].trackCount,
@@ -55,7 +53,6 @@ class Playlist extends React.Component {
         });
         this.setState({ playlist: res.data.response.playlist[0] });
         this.setState({ tracks: res.data.response.playlist[0].tracks });
-        console.log(this.state.tracks);
       })
       .catch(error => {
         console.log("error " + error);
@@ -83,18 +80,32 @@ class Playlist extends React.Component {
           <div className="playlistTracksList">
             {this.state.tracks.map(tracks => (
               <span className="row playlistTracks" key={tracks._id}>
-                <audio className="audio">
-                  <source
-                    src={"http://music-mix.live/" + tracks.url.split("..")[1]}
-                    type="audio/mpeg"
-                  />
-                </audio>
                 <span className="col1">
                   <button></button>
                 </span>
                 <span className="col2">
                   <p className="playlistTrackName">{tracks.name}</p>
-                  <p className="playlistTrackArtist">{tracks.artist}</p>
+                  <Link
+                    className="playlistTrackArtist"
+                    to={{ pathname: "/player/artist/" + tracks.artist_id[0] }}
+                    params={{ artistId: tracks.artist_id[0] }}
+                  >
+                    {tracks.artist[0]}
+                  </Link>
+                  <Link
+                    className="playlistTrackArtist"
+                    to={{ pathname: "/player/artist/" + tracks.artist_id[1] }}
+                    params={{ artistId: tracks.artist_id[1] }}
+                  >
+                    &#160;{tracks.artist[1]}
+                  </Link>
+                  <Link
+                    className="playlistTrackArtist"
+                    to={{ pathname: "/player/artist/" + tracks.artist_id[2] }}
+                    params={{ artistId: tracks.artist_id[2] }}
+                  >
+                    &#160;{tracks.artist[2]}
+                  </Link>
                 </span>
                 <span className="col3">
                   {tracks.explicit === true ? (
@@ -116,4 +127,4 @@ class Playlist extends React.Component {
   }
 }
 
-export default withRouter(Playlist);
+export default Playlist;
