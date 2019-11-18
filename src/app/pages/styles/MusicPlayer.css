@@ -119,7 +119,9 @@
 .Genres,
 .Moods,
 .Search,
-.Playlist {
+.Playlist,
+.Artist,
+.Genre {
   background: #00758a;
   background: -moz-linear-gradient(
     top,

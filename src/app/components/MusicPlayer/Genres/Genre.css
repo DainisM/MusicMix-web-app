@@ -1,55 +1,56 @@
-.playlistInfo {
+.genreInfo {
+  display: inline-block;
+  justify-content: left;
   text-align: center;
   margin: 0;
   padding: 2rem;
+  width: 40%;
+  vertical-align: top;
+  min-width: 350px;
 }
 
-.playlistTracksList {
-  justify-content: center;
-  width: 100%;
+.genreTracksList {
+  display: inline-block;
+  justify-content: right;
+  width: 60%;
   margin: 0;
   padding: 2rem;
 }
 
-.playlistRow {
+.genreRow {
   width: 100%;
 }
 
-#playlist_name {
+#genre_name {
   font-size: 2rem;
   font-weight: 600;
   color: #022930;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-#playlist_description {
-  font-size: 1rem;
+#genre_description {
+  font-size: 1.3rem;
   color: #012830;
 }
 
-#playlist_trackCount {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.playlistTrackLabel {
+.genreTrackLabel {
   font-weight: 600;
   padding: 4px;
   border: 2px solid black;
   border-radius: 2rem;
 }
 
-.playlistTrackName {
+.genreTrackName {
   font-weight: 800;
 }
 
-.playlistTrackArtist {
+.genreTrackArtist {
   font-weight: 500;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.playlistTracks {
+.genreTracks {
   width: 100%;
   min-width: 700px;
   height: 70px;
@@ -58,43 +59,11 @@
   padding: 0.5rem;
 }
 
-.col1 {
-  text-align: center;
-  margin: 5px;
-  padding: 0;
-  width: 10%;
-  min-width: 30px;
-}
-
-.col2 {
-  text-align: left;
-  margin: 5px;
-  padding: 0;
-  width: 65%;
-  min-width: 390px;
-}
-
-.col3 {
-  text-align: center;
-  margin: 5px;
-  padding: 0;
-  width: 10%;
-  min-width: 70px;
-}
-
-.col4 {
-  text-align: center;
-  margin: 5px;
-  padding: 0;
-  width: 5%;
-  min-width: 30px;
-}
-
-.playlistTracks:hover {
+.genreTracks:hover {
   background-color: #005766;
 }
 
-.playlistTrackBtn {
+.genreTrackBtn {
   padding: 0;
   margin: 0;
   font-size: 2rem;

@@ -13,8 +13,7 @@ const initalState = {
   playlist_description: "",
   playlist_trackCount: "",
   tracks: [],
-  imageUrl: "",
-  trackId: "trackId"
+  imageUrl: ""
 };
 
 class Playlist extends React.Component {
@@ -61,6 +60,7 @@ class Playlist extends React.Component {
   }
 
   render() {
+    console.log(this.state.tracks);
     return (
       <MusicPlayerLayout>
         <div className="Playlist">
@@ -87,21 +87,27 @@ class Playlist extends React.Component {
                   <p className="playlistTrackName">{tracks.name}</p>
                   <Link
                     className="playlistTrackArtist"
-                    to={{ pathname: "/player/artist/" + tracks.artist_id[0] }}
+                    to={{
+                      pathname: "/player/artist/" + tracks.artist_id[0]
+                    }}
                     params={{ artistId: tracks.artist_id[0] }}
                   >
                     {tracks.artist[0]}
                   </Link>
                   <Link
                     className="playlistTrackArtist"
-                    to={{ pathname: "/player/artist/" + tracks.artist_id[1] }}
+                    to={{
+                      pathname: "/player/artist/" + tracks.artist_id[1]
+                    }}
                     params={{ artistId: tracks.artist_id[1] }}
                   >
                     &#160;{tracks.artist[1]}
                   </Link>
                   <Link
                     className="playlistTrackArtist"
-                    to={{ pathname: "/player/artist/" + tracks.artist_id[2] }}
+                    to={{
+                      pathname: "/player/artist/" + tracks.artist_id[2]
+                    }}
                     params={{ artistId: tracks.artist_id[2] }}
                   >
                     &#160;{tracks.artist[2]}
@@ -114,9 +120,6 @@ class Playlist extends React.Component {
                 </span>
                 <span className="col4">
                   <button className="playlistTrackBtn">...</button>
-                </span>
-                <span className="col5">
-                  <label>3:43</label>
                 </span>
               </span>
             ))}

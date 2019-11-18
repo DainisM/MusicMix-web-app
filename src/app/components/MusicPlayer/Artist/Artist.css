@@ -1,0 +1,86 @@
+.artistInfo {
+  width: 100%;
+  min-width: 620px;
+  text-align: center;
+  margin: 0;
+  padding: 2rem;
+}
+
+.artistTracksList {
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
+}
+
+.artistTracksList h4 {
+  text-align: center;
+}
+
+.artistRow {
+  width: 100%;
+}
+
+#artist_name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #022930;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.artistTrackLabel {
+  font-weight: 600;
+  padding: 4px;
+  border: 2px solid black;
+  border-radius: 2rem;
+}
+
+.artistTrackName {
+  font-weight: 800;
+}
+
+.artistInfoTable {
+  justify-content: center;
+  width: 100%;
+  min-width: 620px;
+}
+
+.artistInfoTable table {
+  margin: auto;
+}
+
+.artistInfoTable tr,
+.artistInfoTable td {
+  font-size: 1.2rem;
+  border: none;
+}
+
+.artistDescription {
+  width: 100%;
+  min-width: 620px;
+  margin: 0;
+  padding: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2rem;
+}
+
+.artistTracks {
+  width: 100%;
+  min-width: 620px;
+  height: 70px;
+  line-height: 0.5rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.artistTracks:hover {
+  background-color: #005766;
+}
+
+.artistTrackBtn {
+  padding: 0;
+  margin: 0;
+  font-size: 2rem;
+  border: none;
+  background-color: inherit;
+}

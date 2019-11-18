@@ -1,0 +1,10 @@
+.GenresListGenre {
+  margin: 2rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.genresList {
+  justify-content: center;
+  width: 100%;
+}

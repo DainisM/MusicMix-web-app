@@ -25,7 +25,14 @@ var config = {
         }
       },
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.(png|jpg)$/, loader: "url-loader?limit=8192" }
+      { test: /\.(png|jpg)$/, loader: "url-loader?limit=8192" },
+      {
+        test: /\.mp3$/,
+        loader: "file-loader",
+        query: {
+          name: "static/media/[name].[hash:8].[ext]"
+        }
+      }
     ]
   }
 };

@@ -46,7 +46,9 @@ const MusicplayerSideNav = () => {
         <br />
         <button
           className="logoutbutton-musicplayer"
-          onClick={() => window.localStorage.clear()}
+          onClick={() => {
+            window.localStorage.clear(), location.reload();
+          }}
         >
           Log out
         </button>
