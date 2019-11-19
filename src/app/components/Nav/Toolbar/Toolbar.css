@@ -1,20 +1,10 @@
+/*Toolbar (header) style*/
 .toolbar {
   top: 0;
   left: 0;
   width: 100%;
   background: #005766;
   height: 70px;
-}
-
-.spacer {
-  flex: 1;
-}
-
-.space {
-  display: inline-flex;
-  color: whitesmoke;
-  margin: 0 1rem 0 1rem;
-  font-size: 1.5rem;
 }
 
 .toolbar__navigation {
@@ -57,6 +47,19 @@
   color: #00ffff;
 }
 
+/*Spaces (space between Help and Signup links) style*/
+.spacer {
+  flex: 1;
+}
+
+.space {
+  display: inline-flex;
+  color: whitesmoke;
+  margin: 0 1rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+/*Profile icon/link style*/
 .profile {
   justify-content: center;
 }
@@ -70,6 +73,7 @@
   margin: 0;
 }
 
+/*Logout button style*/
 .logoutbutton {
   color: white;
   text-decoration: none;
@@ -85,6 +89,7 @@
   color: #00ffff;
 }
 
+/*Media querries*/
 @media (max-width: 609px) {
   .toolbar__navigation-items {
     display: none;

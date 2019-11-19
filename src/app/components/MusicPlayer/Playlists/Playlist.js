@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import MusicPlayerLayout from "../../../pages/Layouts/MusicPlayerLayout";
 import "./Playlist.css";
 
+//API Authorization
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
 const authString = "Bearer " + usertoken;
 
+//InitialState objects
 const initalState = {
   playlist_name: "",
   playlist_description: "",
@@ -17,12 +19,15 @@ const initalState = {
 };
 
 class Playlist extends React.Component {
+  //State set to initialState
   state = initalState;
 
+  //Method for calling fetch method (Initialazed on render)
   componentDidMount = () => {
     this.renderPlaylist();
   };
 
+  //Method for re-rendering and calling fetch method when props changed
   componentWillUpdate = nextProps => {
     if (
       nextProps.match.params.playlistId != this.props.match.params.playlistId
@@ -32,6 +37,7 @@ class Playlist extends React.Component {
     }
   };
 
+  //Method for fetching data
   renderPlaylist() {
     axios
       .get(
@@ -43,6 +49,7 @@ class Playlist extends React.Component {
         { headers: { Authorization: authString } }
       )
       .then(res => {
+        //If response is ok then set data to state
         this.setState({
           imageUrl: res.data.response.playlist[0].image,
           playlist_name: res.data.response.playlist[0].name,
@@ -64,6 +71,7 @@ class Playlist extends React.Component {
     return (
       <MusicPlayerLayout>
         <div className="Playlist">
+          {/*Div for playlist image, name, description and track count*/}
           <div className="playlistInfo">
             <img
               className="playlistImage"
@@ -77,6 +85,7 @@ class Playlist extends React.Component {
               {this.state.playlist_trackCount} Songs
             </p>
           </div>
+          {/*Div for showing the list of all tracks for the playlist*/}
           <div className="playlistTracksList">
             {this.state.tracks.map(tracks => (
               <span className="row playlistTracks" key={tracks._id}>
@@ -93,6 +102,7 @@ class Playlist extends React.Component {
                     params={{ artistId: tracks.artist_id[0] }}
                   >
                     {tracks.artist[0]}
+                    {/*Links to artist component(page)*/}
                   </Link>
                   <Link
                     className="playlistTrackArtist"

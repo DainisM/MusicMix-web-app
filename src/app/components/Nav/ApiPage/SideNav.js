@@ -1,5 +1,6 @@
 import React from "react";
 
+//Component with links to divs displayed at side
 const SideNav = () => {
   return (
     <aside className="menu">

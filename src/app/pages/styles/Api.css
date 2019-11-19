@@ -1,3 +1,4 @@
+/*API page style*/
 html {
   scroll-behavior: smooth;
 }
@@ -7,6 +8,26 @@ html {
   margin-left: 16rem;
 }
 
+code {
+  color: red;
+  background-color: lightgray;
+}
+
+.right {
+  justify-content: center;
+  background-color: lightgray;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.7rem;
+}
+
+.row {
+  padding: 0;
+}
+
+/*Menu style*/
 .menu {
   margin: 0;
   padding: 0;
@@ -18,11 +39,17 @@ html {
   line-height: 0.3rem;
 }
 
+/*Submenu style*/
 .submenu {
   font-size: 0.8rem;
   line-height: 1rem;
 }
 
+.submenu {
+  line-height: 0.5rem;
+}
+
+/*Navigation bar style*/
 .navbar {
   z-index: 10;
   position: sticky;
@@ -38,6 +65,7 @@ html {
   text-decoration: none;
 }
 
+/*Links style*/
 a {
   text-decoration: none;
   color: #003a44;
@@ -49,26 +77,9 @@ a:hover {
   color: #00cccc;
 }
 
-.submenu {
-  line-height: 0.5rem;
-}
-
+/*Api page table style*/
 table {
   border-collapse: collapse;
-}
-
-code {
-  color: red;
-  background-color: lightgray;
-}
-
-.right {
-  justify-content: center;
-  background-color: lightgray;
-}
-
-.row {
-  padding: 0;
 }
 
 table,
@@ -84,11 +95,7 @@ th {
   background-color: #00a2be;
 }
 
-h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.7rem;
-}
-
+/*Media querries*/
 @media (max-width: 609px) {
   .menu {
     display: none;

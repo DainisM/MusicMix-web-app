@@ -17,6 +17,7 @@ class Login extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-5 main-form">
+              {/*Calling LoginForm component*/}
               <LoginForm />
               <p>
                 Don´t have an account? <a href="/signup">Sign up</a>

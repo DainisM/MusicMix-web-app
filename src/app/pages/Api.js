@@ -8,6 +8,7 @@ const Api = () => {
   return (
     <DefaultLayout>
       <div className="wrap-content">
+        {/*Calling SideNav and TopNav components*/}
         <SideNav />
         <TopNav />
         <div className="main">

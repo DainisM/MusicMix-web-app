@@ -1,8 +1,10 @@
+/*Logo style*/
 .login-logo {
   border-bottom: 1px solid gray;
   justify-content: center;
 }
 
+/*Error message style*/
 .loginErrorMsg {
   color: red;
   font-style: italic;

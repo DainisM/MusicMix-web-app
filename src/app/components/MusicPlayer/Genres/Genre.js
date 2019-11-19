@@ -5,9 +5,11 @@ import MusicPlayerLayout from "../../../pages/Layouts/MusicPlayerLayout";
 import MusicplayerTopNav from "../Nav/MusicplayerTopNav";
 import "./Genre.css";
 
+//API Authorization
 const usertoken = localStorage.getItem("userToken");
 const authString = "Bearer " + usertoken;
 
+// Initialstate object
 const initalState = {
   genreName: "",
   genreDescription: "",
@@ -16,8 +18,11 @@ const initalState = {
 };
 
 class Genres extends React.Component {
+  //Setting state to initialState
   state = initalState;
 
+  //Method for calling fetch genre method and then after 0.5 second
+  // fetching 2.nd fetch method (Initialazed on render)
   componentDidMount = () => {
     this.renderGenre();
     setTimeout(() => {
@@ -25,6 +30,7 @@ class Genres extends React.Component {
     }, 500);
   };
 
+  //Method for fetching genre data
   renderGenre() {
     axios
       .get(
@@ -35,6 +41,7 @@ class Genres extends React.Component {
         }
       )
       .then(res => {
+        //IF response ok then set data to state
         this.setState({
           genreName: res.data.name,
           genreDescription: res.data.description,
@@ -46,6 +53,7 @@ class Genres extends React.Component {
       });
   }
 
+  //Method for fetching tracks for specific genre
   renderGenreTracks() {
     axios
       .get(
@@ -56,6 +64,7 @@ class Genres extends React.Component {
         }
       )
       .then(res => {
+        //If response ok then set data to state
         this.setState({
           genreTracks: res.data.tracks
         });
@@ -71,11 +80,13 @@ class Genres extends React.Component {
       <MusicPlayerLayout>
         <div className="Genre">
           <MusicplayerTopNav />
+          {/*Div for genre image, name and description*/}
           <div className="genreInfo">
             <img src={this.state.genreImage} height="300px" width="300px" />
             <h4 id="genre_name">{this.state.genreName}</h4>
             <p id="genre_description">{this.state.genreDescription}</p>
           </div>
+          {/*Div for genre songs*/}
           <div className="genreTracksList">
             {this.state.genreTracks.map(genreTracks => (
               <span className="row genreTracks" key={genreTracks._id}>
@@ -84,6 +95,7 @@ class Genres extends React.Component {
                 </span>
                 <span className="col2">
                   <p className="genreTrackName">{genreTracks.name}</p>
+                  {/*Links to artist*/}
                   <Link
                     className="genreTrackArtist"
                     to={{

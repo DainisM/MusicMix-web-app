@@ -17,6 +17,7 @@ const Profile = () => {
                 src={require("../images/profilebackground.png")}
               />
             </div>
+            {/*Calling for GetUser, EditUser and ChangePass components*/}
             <GetUser />
             <EditUser />
             <ChangePass />

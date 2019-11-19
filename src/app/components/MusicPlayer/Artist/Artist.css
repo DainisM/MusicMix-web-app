@@ -1,3 +1,4 @@
+/*Artist info div style*/
 .artistInfo {
   width: 100%;
   min-width: 620px;
@@ -6,37 +7,11 @@
   padding: 2rem;
 }
 
-.artistTracksList {
-  justify-content: center;
-  width: 100%;
-  margin: 0;
-  padding: 2rem;
-}
-
-.artistTracksList h4 {
-  text-align: center;
-}
-
-.artistRow {
-  width: 100%;
-}
-
 #artist_name {
   font-size: 2rem;
   font-weight: 600;
   color: #022930;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.artistTrackLabel {
-  font-weight: 600;
-  padding: 4px;
-  border: 2px solid black;
-  border-radius: 2rem;
-}
-
-.artistTrackName {
-  font-weight: 800;
 }
 
 .artistInfoTable {
@@ -62,6 +37,33 @@
   padding: 2rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1.2rem;
+}
+
+/*Artist songs list div*/
+.artistTracksList {
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
+}
+
+.artistTracksList h4 {
+  text-align: center;
+}
+
+.artistRow {
+  width: 100%;
+}
+
+.artistTrackLabel {
+  font-weight: 600;
+  padding: 4px;
+  border: 2px solid black;
+  border-radius: 2rem;
+}
+
+.artistTrackName {
+  font-weight: 800;
 }
 
 .artistTracks {

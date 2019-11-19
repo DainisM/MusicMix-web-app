@@ -5,11 +5,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./SignupForm.css";
 
+//Api authorization
 const url = "http://api.music-mix.live/users/signup";
 const header = new Headers();
 header.append("Content-Type", "application/json");
 const request = new Request(url);
 
+//initailState object
 const initialState = {
   email: "",
   username: "",
@@ -32,8 +34,8 @@ const initialState = {
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = initialState;
 
+    //Binding methods to this
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
@@ -41,16 +43,22 @@ class SignupForm extends React.Component {
     this.redirect = this.redirect.bind(this);
   }
 
+  //State set to initialState
+  state = initialState;
+
+  //Method for redirecting user after signup to login page after 2 sec
   redirect() {
     setTimeout(() => {
       this.props.history.push("/login");
-    }, 3000);
+    }, 2000);
   }
 
+  //Method for handling user inputs
   handleUserInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  //Method for validating user inputs
   validate = () => {
     let emailError = "";
     let usernameError = "";
@@ -101,6 +109,7 @@ class SignupForm extends React.Component {
       termsError = "Please read and agree to our Terms and Conditions of Use";
     }
 
+    //If there is errors set them to state and return false
     if (
       emailError ||
       usernameError ||
@@ -122,14 +131,18 @@ class SignupForm extends React.Component {
       return false;
     }
 
+    //Else return true
     return true;
   };
 
+  //Method for handling submit and fetch
   handleSubmit(e) {
     e.preventDefault();
+    //invoking validate methods
     const isValid = this.validate();
+    //If validate method returns true then continue
     if (isValid) {
-      console.log(this.state);
+      //Set method, body with data and header for post requiest
       const myInit = {
         method: "POST",
         body: JSON.stringify({
@@ -142,32 +155,37 @@ class SignupForm extends React.Component {
         headers: header
       };
 
+      //Fetching response
       fetch(request, myInit)
         .then(response => {
           if (response.status === 201) {
+            //If response 201 then set state "signupSuccessful"
             let signupSuccessful =
               "User created successfully! Redirecting to login.";
             this.setState({ signupSuccessful });
-          } else if (response.status === 409) {
+          }
+          //If response 409 then set state to email exists
+          else if (response.status === 409) {
             let singupError = "Email already exists!";
             this.setState({ singupError });
           }
-          console.log(response);
           return response.json();
         })
         .catch(error => {
           console.log(error);
         });
-      //Clear the form
+      //Clear the form and redirect
       this.setState(initialState);
       this.redirect();
     }
   }
 
+  //Method for handling user input birthday
   handleBirthday = date => {
     this.setState({ birthday: moment(date).format("YYYY-MM-DD") });
   };
 
+  //Method for checking if user agreaded to terms
   handleCheck(e) {
     this.setState({ terms: !this.state.terms });
   }
@@ -176,6 +194,7 @@ class SignupForm extends React.Component {
     return (
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <h3>Sign up with your emil address</h3>
+        {/*Input and label for email*/}
         <div className="form-group">
           <label className="control-label">Email</label>
           <input
@@ -185,8 +204,10 @@ class SignupForm extends React.Component {
             name="email"
             className="form-control"
           />
+          {/*Error msg*/}
           <p className="validationMsg">{this.state.emailError}</p>
         </div>
+        {/*Input and label for username*/}
         <div className="form-group">
           <label className="control-label">Username</label>
           <input
@@ -196,8 +217,10 @@ class SignupForm extends React.Component {
             name="username"
             className="form-control"
           />
+          {/*Error msg*/}
           <p className="validationMsg">{this.state.usernameError}</p>
         </div>
+        {/*Input and label for password*/}
         <div className="form-group">
           <label className="control-label">Password</label>
           <input
@@ -207,8 +230,10 @@ class SignupForm extends React.Component {
             name="password"
             className="form-control"
           />
+          {/*Error msg*/}
           <p className="validationMsg">{this.state.passError}</p>
         </div>
+        {/*Input and label for password confirmation*/}
         <div className="form-group">
           <label className="control-label">Confirm password</label>
           <input
@@ -218,8 +243,10 @@ class SignupForm extends React.Component {
             name="passwordConfirmation"
             className="form-control"
           />
+          {/*Error msg*/}
           <p className="validationMsg">{this.state.passConfError}</p>
         </div>
+        {/*Gender radio buttons*/}
         <div className="form-group">
           <label className="control-label">Gender</label>
           <br />
@@ -243,9 +270,10 @@ class SignupForm extends React.Component {
             />
             Female
           </label>
+          {/*Error msg*/}
           <p className="validationMsg">{this.state.genderError}</p>
         </div>
-
+        {/*Label and datePicker for user birthday*/}
         <label className="control-label">Birthday</label>
         <br />
         <DatePicker
@@ -258,8 +286,10 @@ class SignupForm extends React.Component {
           showYearDropdown
           dropdownMode="select"
         />
+        {/*Error msg*/}
         <p className="validationMsg">{this.state.birthdayError}</p>
         <br />
+        {/*Checkbox for accepting terms and conditions of use*/}
         <div className="row form-group">
           <div className="terms">
             <input
@@ -271,6 +301,7 @@ class SignupForm extends React.Component {
             <p>
               I agree to the <a href="/terms">Terms and Conditions of Use</a>{" "}
             </p>
+            {/*Error msg*/}
             <p className="validationMsg">{this.state.termsError}</p>
           </div>
         </div>
@@ -278,6 +309,7 @@ class SignupForm extends React.Component {
         <div className="form-group">
           <button className="btn btn-lg signup-btn">Sign up</button>
         </div>
+        {/*Successfull msg*/}
         <p className="userCreated">{this.state.signupSuccessful}</p>
       </form>
     );

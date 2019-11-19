@@ -1,3 +1,4 @@
+/*Change password button*/
 .changePassBtn {
   color: #00cccc;
   background-color: #005766;
@@ -14,15 +15,19 @@
   box-shadow: 0px 8px 15px #005766;
 }
 
+/*Change password messages*/
 .changePassMsg {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-weight: 700;
 }
+
+/*Change password input boxes*/
 .changePassInput {
   border-radius: 0.5rem;
 }
 
+/*Change password labels*/
 .changePassLabel {
   margin-top: 1rem;
 }

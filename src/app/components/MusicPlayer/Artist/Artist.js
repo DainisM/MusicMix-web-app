@@ -3,9 +3,11 @@ import axios from "axios";
 import MusicPlayerLayout from "../../../pages/Layouts/MusicPlayerLayout";
 import "./Artist.css";
 
+//API Authorization
 const usertoken = localStorage.getItem("userToken");
 const authString = "Bearer " + usertoken;
 
+// InitialState objects
 const initalState = {
   artist_name: "",
   artist_type: "",
@@ -19,13 +21,16 @@ const initalState = {
 };
 
 class Artist extends React.Component {
+  //State set to initialState
   state = initalState;
 
+  //Method which calls for fetch methods (initialazed on render)
   componentDidMount = () => {
     this.renderArtist();
     this.renderArtistTracks();
   };
 
+  //Method which calls for fetch metod if props changed
   componentWillUpdate = nextProps => {
     if (nextProps.match.params.artistId != this.props.match.params.artistId) {
       location.reload();
@@ -33,6 +38,7 @@ class Artist extends React.Component {
     }
   };
 
+  //Method for fetching artist data
   renderArtist() {
     axios
       .get(
@@ -40,6 +46,7 @@ class Artist extends React.Component {
         { headers: { Authorization: authString } }
       )
       .then(res => {
+        // If response ok then seting data to state
         this.setState({
           artist_image: res.data.urls.image,
           artist_name: res.data.name,
@@ -57,6 +64,7 @@ class Artist extends React.Component {
     this.setState({ state: initalState });
   }
 
+  //Method for fetching artist songs
   renderArtistTracks() {
     axios
       .get(
@@ -65,6 +73,7 @@ class Artist extends React.Component {
         { headers: { Authorization: authString } }
       )
       .then(res => {
+        //If response ok then setting data to state
         this.setState({ artistTracks: res.data.tracks });
       })
       .catch(error => {
@@ -77,6 +86,7 @@ class Artist extends React.Component {
     return (
       <MusicPlayerLayout>
         <div className="Artist">
+          {/*Div for artist image and name*/}
           <div className="artistInfo">
             <img
               className="artistImage"
@@ -86,6 +96,7 @@ class Artist extends React.Component {
             />
             <p id="artist_name">{this.state.artist_name}</p>
           </div>
+          {/*Div for more specifik artist info (table)*/}
           <div className="artistInfoTable">
             <table>
               <tr>
@@ -107,6 +118,7 @@ class Artist extends React.Component {
             </table>
           </div>
           <br />
+          {/*Div for artist description and external link*/}
           <div className="artistDescription">
             <p>{this.state.artist_description}</p>
             <p>
@@ -114,6 +126,7 @@ class Artist extends React.Component {
               <a href={this.state.artist_links}>here</a>.
             </p>
           </div>
+          {/*Div for artist songs*/}
           <div className="artistTracksList">
             <h4>Here are the tracks of the following artist/band</h4>
             {this.state.artistTracks.map(artistTracks => (

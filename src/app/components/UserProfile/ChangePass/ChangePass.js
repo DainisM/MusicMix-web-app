@@ -3,6 +3,7 @@ import axios from "axios";
 import bcrypt from "bcryptjs";
 import "./ChangePass.css";
 
+//Api authorization
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
 const Geturl = "http://api.music-mix.live/users/" + userid + "";
@@ -18,6 +19,7 @@ class ChangePass extends React.Component {
     super(props);
     this.handleUserInput = this.handleUserInput.bind(this);
   }
+  //State objects
   state = {
     pass: "",
     currentPass: "",
@@ -29,24 +31,27 @@ class ChangePass extends React.Component {
     passMsg: ""
   };
 
+  //Method for handling user inputs
   handleUserInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  //Method for fetching data (Initialazed in render)
   componentDidMount() {
     axios
       .get(Geturl, { headers: { Authorization: authString } })
       .then(response => {
+        //If response ok then set data to password state
         this.setState({
           pass: response.data.password
         });
-        console.log(this.state.pass);
       })
       .catch(error => {
         console.log("error " + error);
       });
   }
 
+  //Method for validating new password and confirm pass
   passIsOk = () => {
     if (
       !this.state.newPass.match(
@@ -59,15 +64,19 @@ class ChangePass extends React.Component {
       });
       return false;
     }
+    // If no errors and passwords match then return true
     if (this.state.newPass === this.state.newPassConfirm) {
       this.setState({ isPassOk: true });
       return true;
-    } else {
+    }
+    //If password does not match passError state is set to this msg and return false
+    else {
       this.setState({ passError: "New password does not match!" });
       return false;
     }
   };
 
+  //Method for comparing crypted password received from API and "Current pass" input
   comparePass = () => {
     bcrypt.compare(this.state.currentPass, this.state.pass, (err, result) => {
       if (err) {
@@ -83,16 +92,22 @@ class ChangePass extends React.Component {
       }
     });
 
+    //If passwords match then return true
     if (this.state.currentPassOK === true) {
       return true;
     }
+    //If password does not match then return false
     return false;
   };
 
+  //Method for patching password
   PatchPass = () => {
+    //Calling comparePass and passIsOk methods
     const comparePass = this.comparePass();
     const isPassOk = this.passIsOk();
+    //If both methods return true then continue
     if (comparePass && isPassOk) {
+      //Set method, body with data (new pass) and header for PATCH request
       const myInit = {
         method: "PATCH",
         body: JSON.stringify({
@@ -101,9 +116,10 @@ class ChangePass extends React.Component {
         headers: header
       };
 
+      //Fetch response
       fetch(request, myInit)
         .then(response => {
-          console.log(response);
+          //If response ok then set passMsg to "...updated successfully"
           if (response.status === 200) {
             this.setState({ passMsg: "Password updated successfully!" });
           }
@@ -120,6 +136,7 @@ class ChangePass extends React.Component {
       <div className="changePass">
         <h1>Change password</h1>
         <form className="signup-form">
+          {/*Label and input for current pass*/}
           <label className="changePassLabel">Current Password</label>
           <br />
           <input
@@ -130,6 +147,7 @@ class ChangePass extends React.Component {
             name="currentPass"
           />
           <br />
+          {/*Label and input for new pass*/}
           <label className="changePassLabel">New password</label>
           <br />
           <input
@@ -140,6 +158,7 @@ class ChangePass extends React.Component {
             name="newPass"
           />
           <br />
+          {/*label and input for confirm new pass*/}
           <label className="changePassLabel">Confirm new password</label>
           <br />
           <input
@@ -152,12 +171,14 @@ class ChangePass extends React.Component {
           <br />
         </form>
         <br />
+        {/*Messages error or successfull*/}
         <p
           className="changePassMsg"
           style={{ color: this.state.passMsg ? "#005766" : "red" }}
         >
           {this.state.passMsg || this.state.passError}
         </p>
+        {/*Button to change pass*/}
         <button className="changePassBtn" onClick={this.PatchPass}>
           Change password
         </button>

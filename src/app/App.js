@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
+//Other component imports
 import Home from "./pages/Home";
 import Download from "./pages/Download";
 import SignUp from "./pages/SignUp";
@@ -17,6 +18,8 @@ import Profile from "./pages/Profile";
 const history = createBrowserHistory();
 
 class App extends Component {
+  //Method which checks if userId in localstorage is older than 8 hours then delete
+  // userId from localStorage and redirect user to login
   componentDidMount() {
     const date = localStorage.getItem("userDate");
     const userDate = +new Date(parseInt(date));
@@ -37,6 +40,7 @@ class App extends Component {
     }
   }
 
+  //Router and routes for imported components
   render() {
     return (
       <div className="app">

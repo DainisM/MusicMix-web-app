@@ -4,6 +4,7 @@ import Playlists from "../Playlists/PlaylistList";
 const MusicplayerSideNav = () => {
   return (
     <aside className="musicPlayerSideMenu">
+      {/*Div with logom and 2 links to home and search componennts*/}
       <div className="MusicplayerLogo">
         <a href="/player">
           <img
@@ -20,6 +21,7 @@ const MusicplayerSideNav = () => {
           <a href="/player/search">Search</a>
         </li>
       </ul>
+      {/*Calling Playlist component if there is userId in localStorage*/}
       <div
         style={{
           display: localStorage.getItem("userId") ? "block" : "none"
@@ -27,7 +29,9 @@ const MusicplayerSideNav = () => {
       >
         <Playlists />
       </div>
+      {/*Div with link to user profile, logout and login*/}
       <div
+        /*If there is userId in localStorage then show profile icon and username (Link to profile page)*/
         className="MusicplayerProfileInfo"
         style={{
           display: localStorage.getItem("userId") ? "block" : "none"
@@ -44,6 +48,7 @@ const MusicplayerSideNav = () => {
           {localStorage.getItem("userName")}
         </a>
         <br />
+        {/*If there is no userId in localStorage this "Logout" button will be shown*/}
         <button
           className="logoutbutton-musicplayer"
           onClick={() => {
@@ -53,6 +58,7 @@ const MusicplayerSideNav = () => {
           Log out
         </button>
       </div>
+      {/*If there is userId in localStorage this logout button wil be shown*/}
       <a
         style={{
           display: localStorage.getItem("userId") ? "none" : "block"

@@ -17,6 +17,7 @@ class SignUp extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-5 main-form">
+              {/*Calling SignupForm component*/}
               <SignupForm />
               <p className="login-teaser">
                 Already have an account? <a href="/login">Log in</a>

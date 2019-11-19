@@ -14,6 +14,7 @@
   color: rgb(177, 177, 177);
 }
 
+/* Link styling*/
 .logo a,
 .links a,
 .social a {
@@ -35,6 +36,7 @@ li {
   text-decoration: none;
 }
 
+/* Link hover styling*/
 .links a:hover,
 .links a:active,
 .social a:hover,

@@ -7,6 +7,7 @@ const Footer = () => {
       <footer className="footer">
         <div className="container">
           <div className="row">
+            {/* Div with logo*/}
             <div className="col-sm logo">
               <a href="/">
                 <img
@@ -19,6 +20,7 @@ const Footer = () => {
               <p></p>
               <p>© 2019 MusicMix</p>
             </div>
+            {/* Div with links to other pages*/}
             <div className="col-sm links">
               <ul>
                 <li>
@@ -35,6 +37,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            {/* Div with links to social media*/}
             <div className="col-sm social">
               <ul>
                 <li>

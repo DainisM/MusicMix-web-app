@@ -3,7 +3,7 @@
   height: 100%;
 }
 
-/*-----MusicPlayer page styling-----*/
+/*MusicPlayer page styling*/
 .musicPlayerMain a {
   color: black;
 }
@@ -12,7 +12,7 @@
   color: #00cccc;
 }
 
-/*-----MusicPlayer side menu styling-----*/
+/*MusicPlayer side menu styling*/
 .musicPlayerSideMenu {
   margin: 0;
   padding: 0;
@@ -23,12 +23,18 @@
   overflow-y: auto;
 }
 
+/*Musicplayer profile info div style*/
 .MusicplayerProfileInfo {
   bottom: 0;
   padding: 2rem;
   margin: 1rem;
 }
 
+.MusicplayerProfileInfo button {
+  margin-top: 1rem;
+}
+
+/*Playlist list style*/
 .PlaylistList {
   height: 60%x;
   max-height: 60%;
@@ -47,6 +53,7 @@
   max-height: 45vh;
 }
 
+/*Create playlist div style*/
 .PlaylistLabel {
   color: #00cccc;
   font-weight: 600;
@@ -70,10 +77,7 @@
   box-shadow: 0px 8px 15px #00cccc;
 }
 
-.MusicplayerProfileInfo button {
-  margin-top: 1rem;
-}
-
+/*Musicplayer login style*/
 .MusicPlayerLoginLink {
   margin: 0 0 10px 80px;
   color: #005766;
@@ -91,6 +95,7 @@
   box-shadow: 0px 8px 15px #00cccc;
 }
 
+/*Musicplayer logout style*/
 .logoutbutton-musicplayer {
   font-weight: 800;
   color: #022930;

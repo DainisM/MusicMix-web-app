@@ -4,6 +4,7 @@ import moment from "moment";
 import axios from "axios";
 import "./EditUser.css";
 
+//API authorization
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
 const url = "http://api.music-mix.live/users/" + userid;
@@ -18,6 +19,7 @@ class EditUser extends React.Component {
     super(props);
     this.handleUserInput = this.handleUserInput.bind(this);
   }
+  //State objects
   state = {
     newUserName: "",
     newUserEmail: "",
@@ -26,18 +28,22 @@ class EditUser extends React.Component {
     editMsg: ""
   };
 
+  //Method for handling user input
   handleUserInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  //Method for handling user picked birthday
   handleBirthday = date => {
     this.setState({ newUserBirthday: moment(date).format("YYYY-MM-DD") });
   };
 
+  //Method for fetching data (Initialazed on render)
   componentDidMount() {
     axios
       .get(url, { headers: { Authorization: authString } })
       .then(response => {
+        //If response is ok then set data to state
         this.setState({
           newUserName: response.data.username,
           newUserEmail: response.data.email,
@@ -50,7 +56,9 @@ class EditUser extends React.Component {
       });
   }
 
+  //Method for patch request
   PatchData = () => {
+    //Set method, body with new data and header for PATCH request
     const myInit = {
       method: "PATCH",
       body: JSON.stringify({
@@ -62,8 +70,10 @@ class EditUser extends React.Component {
       headers: header
     };
 
+    //Fetch request
     fetch(request, myInit)
       .then(response => {
+        //If response ok then set editMsg to "...updated successfully"
         if (response.status === 200) {
           this.setState({ editMsg: "Profile updated successfully!" });
         }
@@ -73,6 +83,7 @@ class EditUser extends React.Component {
         console.log(error);
       });
 
+    //After 0.5 sec reload page
     setTimeout(() => {
       window.location.reload();
       localStorage.setItem("userName", this.state.newUserName);
@@ -84,6 +95,7 @@ class EditUser extends React.Component {
       <div className="editUser">
         <h1>Edit profile</h1>
         <form className="signup-form">
+          {/*Div with input and label for email*/}
           <div className="form-group">
             <label className="control-label">Email</label>
             <input
@@ -94,6 +106,7 @@ class EditUser extends React.Component {
               className="form-control"
             />
           </div>
+          {/*Div with label and input for username*/}
           <div className="form-group">
             <label className="control-label">Username</label>
             <input
@@ -104,6 +117,7 @@ class EditUser extends React.Component {
               className="form-control"
             />
           </div>
+          {/*Div with 2 radio buttons for gender choose*/}
           <div className="form-group">
             <label className="control-label">Gender</label>
             <br />
@@ -116,7 +130,7 @@ class EditUser extends React.Component {
               <option value="Female">Female</option>
             </select>
           </div>
-
+          {/*Label and datePicker for birthday*/}
           <label className="control-label">Birthday</label>
           <br />
           <DatePicker
@@ -131,7 +145,9 @@ class EditUser extends React.Component {
           />
         </form>
         <br />
+        {/*Message*/}
         <p className="editMsg">{this.state.editMsg}</p>
+        {/*Button for invoking patch requesst*/}
         <button className="EditUserBtn" onClick={this.PatchData}>
           Edit profile
         </button>

@@ -2,6 +2,7 @@ import React from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
+//Other component imports
 import Browse from "../components/MusicPlayer/Browse";
 import Search from "../components/MusicPlayer/Search/Search";
 import Genres from "../components/MusicPlayer/Genres/Genres";
@@ -14,6 +15,7 @@ import "./styles/MusicPlayer.css";
 
 const history = createBrowserHistory();
 
+//Component which holds router and routes to all imported components
 const MusicPlayer = () => {
   return (
     <Router history={history}>

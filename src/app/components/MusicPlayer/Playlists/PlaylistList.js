@@ -3,6 +3,7 @@ import Popup from "reactjs-popup";
 import ShowPlaylists from "./ShowPlaylists";
 import "./PlaylistList.css";
 
+//InitialState objects
 const initialState = {
   open: false,
   playlistName: "",
@@ -14,6 +15,7 @@ const initialState = {
   playlistMsg: ""
 };
 
+//API Authorization
 const userid = localStorage.getItem("userId");
 const usertoken = localStorage.getItem("userToken");
 const url = "http://api.music-mix.live/playlists/users/" + userid + "";
@@ -33,23 +35,28 @@ class PlaylistList extends React.Component {
 
   state = initialState;
 
+  //Method for handling user inputs
   handleUserInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  //Method for handling image upload(selection)
   handleFileSelected(e) {
     formData.append("image", e.target.files[0], e.target.name);
     this.setState({ playlistImage: e.target.value });
   }
 
+  //Method for opening popup
   openPopup() {
     this.setState({ open: true });
   }
 
+  //Method for closing popup
   closePopup() {
     this.setState(initialState);
   }
 
+  //Method for validating user inputs
   validate = () => {
     let playlistNameError = "";
     let playlistDescriptionError = "";
@@ -68,6 +75,7 @@ class PlaylistList extends React.Component {
       playlistImageError = "Please choose image for this playlist!";
     }
 
+    //If there is errors then set them to state and return false
     if (playlistNameError || playlistDescriptionError || playlistImageError) {
       this.setState({
         playlistNameError,
@@ -77,24 +85,30 @@ class PlaylistList extends React.Component {
       return false;
     }
 
+    //Else return true
     return true;
   };
 
+  //Method for posting data to API
   savePlaylist = () => {
+    // Appending state data to formData
     formData.append("name", this.state.playlistName);
     formData.append("description", this.state.playlistDescription);
+    //Invoking validate method
     const isValid = this.validate();
+    //If validate method is true them continue and set method, body and header
     if (isValid) {
       const myInit = {
         method: "POST",
         body: formData,
         headers: header
       };
+      //Fetch response
       fetch(request, myInit)
         .then(response => {
           console.log(response);
           if (response.ok) {
-            console.log(response);
+            //If response ok then set "playlistMsg" state and reload page
             this.setState({ playlistMsg: "Playlist created successfully!" });
             location.reload();
           }
@@ -109,9 +123,11 @@ class PlaylistList extends React.Component {
     return (
       <div className="PlaylistList">
         <p className="PlaylistLabel">Playlists</p>
+        {/*Button to call for openpopup method*/}
         <button className="CreatePlaylist" onClick={this.openPopup}>
           Create playlist
         </button>
+        {/*Popup component*/}
         <Popup
           open={this.state.open}
           closeOnDocumentClick
@@ -124,6 +140,7 @@ class PlaylistList extends React.Component {
             </a>
             <h2>Create your new playlist...</h2>
             <br />
+            {/*Input and label for playlist name*/}
             <div className="row">
               <label>Playlist name:</label>
               <input
@@ -136,6 +153,7 @@ class PlaylistList extends React.Component {
               <p className="playlistError">{this.state.playlistNameError}</p>
             </div>
             <br />
+            {/*Input and label for description*/}
             <div className="row">
               <label>Playlist description:</label>
               <textarea
@@ -151,6 +169,7 @@ class PlaylistList extends React.Component {
               </p>
             </div>
             <br />
+            {/*File input for image*/}
             <div className="row">
               <label>Playlist image:</label>
               <input
@@ -164,12 +183,14 @@ class PlaylistList extends React.Component {
             </div>
             <br />
             <div>
+              {/*Close popup button*/}
               <button
                 className="createPalylist-close"
                 onClick={this.closePopup}
               >
                 Close
               </button>
+              {/*Save playlist button*/}
               <button
                 className="createPalylist-save"
                 onClick={this.savePlaylist}

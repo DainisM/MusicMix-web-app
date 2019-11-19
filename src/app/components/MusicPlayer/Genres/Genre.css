@@ -1,3 +1,8 @@
+.genreRow {
+  width: 100%;
+}
+
+/*Genre info style*/
 .genreInfo {
   display: inline-block;
   justify-content: left;
@@ -7,18 +12,6 @@
   width: 40%;
   vertical-align: top;
   min-width: 350px;
-}
-
-.genreTracksList {
-  display: inline-block;
-  justify-content: right;
-  width: 60%;
-  margin: 0;
-  padding: 2rem;
-}
-
-.genreRow {
-  width: 100%;
 }
 
 #genre_name {
@@ -31,6 +24,15 @@
 #genre_description {
   font-size: 1.3rem;
   color: #012830;
+}
+
+/*Genre tracks style*/
+.genreTracksList {
+  display: inline-block;
+  justify-content: right;
+  width: 60%;
+  margin: 0;
+  padding: 2rem;
 }
 
 .genreTrackLabel {

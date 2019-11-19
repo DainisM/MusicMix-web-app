@@ -1,3 +1,4 @@
+/*Burger menu style*/
 .side-drawer {
   height: 100%;
   background: #f0ffff;
@@ -16,6 +17,7 @@
   transform: translateX(0);
 }
 
+/*Burger menu side links style*/
 .side-drawer ul {
   height: 100%;
   list-style: none;
@@ -39,6 +41,7 @@
   color: #fa923f;
 }
 
+/*Logout button style*/
 .logoutbutton-sideDrawer {
   color: #521751;
   text-decoration: none;
@@ -55,6 +58,7 @@
   color: #fa923f;
 }
 
+/*Media query for burger menu*/
 @media (min-width: 610px) {
   .side-drawer {
     display: none;
