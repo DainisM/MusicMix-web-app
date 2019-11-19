@@ -1,6 +1,5 @@
 import React from "react";
 import MusicplayerSideNav from "../../components/MusicPlayer/Nav/MusicplayerSideNav";
-import AudioPlayer from "../../components/MusicPlayer/AudioPlayer";
 
 const MusicPlayerLayout = ({ children }) => (
   <div>
@@ -11,9 +10,7 @@ const MusicPlayerLayout = ({ children }) => (
         </div>
         <div>{children}</div>
       </div>
-      <div className="row">
-        <AudioPlayer />
-      </div>
+      <div className="row"></div>
     </div>
   </div>
 );

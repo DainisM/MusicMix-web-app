@@ -17,17 +17,24 @@
   margin: 0;
   padding: 0;
   width: 250px;
-  height: calc(100vh - 100px);
+  max-width: 350px;
+  height: 100vh;
   background-color: #005766;
   overflow-y: auto;
 }
 
 .MusicplayerProfileInfo {
+  bottom: 0;
   padding: 2rem;
+  margin: 1rem;
 }
 
 .PlaylistList {
+  height: 60%x;
+  max-height: 60%;
   padding-left: 40px;
+  margin-bottom: 2rem;
+  padding: 1rem;
 }
 
 .PlaylistList ul {
@@ -146,17 +153,10 @@
   padding: 0;
   top: 0;
   width: calc(100vw - 250px);
-  height: calc(100vh - 100px);
+  height: 100vh;
   position: absolute;
   overflow-y: auto;
   overflow-x: auto;
-}
-
-/*-----MusicPlayer search component styling-----*/
-.SearchInput {
-  margin: 3rem;
-  width: 40rem;
-  border-radius: 20px;
 }
 
 /*-----Custom scrollbar-----*/

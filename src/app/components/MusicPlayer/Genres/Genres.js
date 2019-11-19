@@ -12,18 +12,6 @@ const initalState = {
   genres: []
 };
 
-// this.setState({
-//   artist_image:
-//     "http://music-mix.live/" + res.data.urls.image.split("..")[1],
-//   artist_name: res.data.name,
-//   artist_type: res.data.details.type,
-//   artist_carrierStart: res.data.details.carrier_start,
-//   artist_active: res.data.details.active,
-//   artist_location: res.data.details.location,
-//   artist_description: res.data.description,
-//   artist_links: res.data.urls.external_url
-// });
-
 class Genres extends React.Component {
   state = initalState;
 

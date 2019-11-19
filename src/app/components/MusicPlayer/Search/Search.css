@@ -1,0 +1,76 @@
+#SearchMain {
+  padding: 2rem;
+  min-width: 620px;
+}
+
+/* Search input field*/
+#SearchInput {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 1rem;
+  width: 27rem;
+  border-radius: 20px;
+}
+
+/* Search button*/
+#SearchBtn {
+  color: #005766;
+  background-color: #00cccc;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+}
+
+#SearchBtn:hover {
+  background-color: #022930;
+  color: #00cccc;
+}
+
+/* Search result div style*/
+.SearchResults {
+  display: inline-block;
+  justify-content: right;
+  width: 60%;
+  margin: 0;
+  padding: 2rem;
+}
+
+.searchSongsLabel {
+  font-weight: 600;
+  padding: 4px;
+  border: 2px solid black;
+  border-radius: 2rem;
+}
+
+.searchSongsName {
+  font-weight: 800;
+}
+
+.searchSongsArtist {
+  font-weight: 500;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/* Div for eatch song*/
+.searchSongs {
+  width: 100%;
+  min-width: 700px;
+  height: 70px;
+  line-height: 0.5rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.searchSongs:hover {
+  background-color: #005766;
+}
+
+.searchSongsBtn {
+  padding: 0;
+  margin: 0;
+  font-size: 2rem;
+  border: none;
+  background-color: inherit;
+}

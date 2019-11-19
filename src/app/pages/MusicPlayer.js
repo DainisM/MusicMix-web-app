@@ -3,7 +3,7 @@ import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import Browse from "../components/MusicPlayer/Browse";
-import Search from "../components/MusicPlayer/Search";
+import Search from "../components/MusicPlayer/Search/Search";
 import Genres from "../components/MusicPlayer/Genres/Genres";
 import Genre from "../components/MusicPlayer/Genres/Genre";
 import Moods from "../components/MusicPlayer/Moods";
