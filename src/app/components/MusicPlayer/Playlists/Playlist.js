@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import MusicPlayerLayout from "../../../pages/Layouts/MusicPlayerLayout";
+import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import "./Playlist.css";
 
 //API Authorization
@@ -15,7 +16,12 @@ const initalState = {
   playlist_description: "",
   playlist_trackCount: "",
   tracks: [],
-  imageUrl: ""
+  imageUrl: "",
+  showAudioPlayer: false,
+  trackList: [],
+  song_src: null,
+  song_name: null,
+  song_artist: null
 };
 
 class Playlist extends React.Component {
@@ -37,6 +43,72 @@ class Playlist extends React.Component {
     }
   };
 
+  //Method for handling user click and setting song url to state of the clicked div(which holds url)
+  handleClick = e => {
+    this.setState({
+      song_src: e.target.value,
+      song_name: e.target.name,
+      song_artist: e.target.artist,
+      showAudioPlayer: true
+    });
+  };
+
+  //Method passed to audioPlayer which tells what to do when song is done
+  onSongDone() {
+    this.onPlayerNext();
+  }
+
+  //Method passed to audioPlayer which finds current song index in array of all song of the playlist
+  // and sets next index song url to song_src state
+  onPlayerNext() {
+    var index = this.state.trackList.findIndex(t => t == this.state.song_src);
+    if (this.state.trackList.length > index + 1) {
+      this.setState({
+        song_src: this.state.trackList[index + 1],
+        song_name: this.state.tracks[index + 1].name,
+        song_artist: this.state.tracks[index + 1].artist
+      });
+    } else {
+      this.setState({
+        song_src: this.state.trackList[0]
+      });
+    }
+  }
+
+  //Method passed to audioPlayer hich finds current song index in array of all songs and then sets song_src url to previous index url
+  onPlayerPrev() {
+    var index = this.state.trackList.findIndex(t => t == this.state.song_src);
+    if (index - 1 < 0) {
+      console.log("No more songs");
+      return false;
+    } else {
+      this.setState({
+        song_src: this.state.trackList[index - 1],
+        song_name: this.state.tracks[index - 1].name,
+        song_artist: this.state.tracks[index - 1].artist
+      });
+      return true;
+    }
+  }
+
+  //Method call for audioPlayer component and passes props
+  getAudioComponent = () => {
+    if (this.state.showAudioPlayer) {
+      return (
+        <AudioPlayer
+          src={this.state.song_src}
+          name={this.state.song_name}
+          artist={this.state.song_artist}
+          onDone={this.onSongDone.bind(this)}
+          onNext={this.onPlayerNext.bind(this)}
+          onPrev={this.onPlayerPrev.bind(this)}
+        />
+      );
+    } else {
+      return null;
+    }
+  };
+
   //Method for fetching data
   renderPlaylist() {
     axios
@@ -55,10 +127,11 @@ class Playlist extends React.Component {
           playlist_name: res.data.response.playlist[0].name,
           playlist_description: res.data.response.playlist[0].description,
           playlist_trackCount: res.data.response.playlist[0].trackCount,
-          tracks: res.data.response.playlist[0].tracks
+          tracks: res.data.response.playlist[0].tracks,
+          trackList: res.data.response.playlist[0].tracks.map(
+            tracks => "http://api.music-mix.live" + tracks.url.split("..")[1]
+          )
         });
-        this.setState({ playlist: res.data.response.playlist[0] });
-        this.setState({ tracks: res.data.response.playlist[0].tracks });
       })
       .catch(error => {
         console.log("error " + error);
@@ -67,7 +140,6 @@ class Playlist extends React.Component {
   }
 
   render() {
-    console.log(this.state.tracks);
     return (
       <MusicPlayerLayout>
         <div className="Playlist">
@@ -90,7 +162,13 @@ class Playlist extends React.Component {
             {this.state.tracks.map(tracks => (
               <span className="row playlistTracks" key={tracks._id}>
                 <span className="col1">
-                  <button></button>
+                  <button
+                    className="playlistTrackIcon"
+                    value={
+                      "http://api.music-mix.live" + tracks.url.split("..")[1]
+                    }
+                    onClick={this.handleClick}
+                  ></button>
                 </span>
                 <span className="col2">
                   <p className="playlistTrackName">{tracks.name}</p>
@@ -134,6 +212,7 @@ class Playlist extends React.Component {
               </span>
             ))}
           </div>
+          {this.getAudioComponent()}
         </div>
       </MusicPlayerLayout>
     );

@@ -1,0 +1,81 @@
+/*-----MusicPlayer audio player styling-----*/
+.audioPlayer {
+  bottom: 0;
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  width: 100%;
+  background-color: #00cccc;
+  /* background-color: #005766; */
+}
+
+.controls {
+  float: left;
+}
+
+.controls > a {
+  text-decoration: none;
+  height: 50px;
+  width: 34px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 17px 10px;
+  float: left;
+  color: white;
+  cursor: pointer;
+}
+
+.controls > a:hover {
+  background-color: #084380;
+  color: #b3b3b3;
+}
+
+.progress {
+  position: absolute;
+  left: 102px;
+  top: 15px;
+  right: 300px;
+  bottom: 15px;
+  background: black;
+  cursor: pointer;
+}
+
+.progress > .bar {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+}
+
+.progress > .bar > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: white;
+}
+
+.time {
+  position: absolute;
+  right: 200px;
+  width: 100px;
+  color: white;
+  font-size: 12px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+#volumeControl {
+  width: 150px;
+  height: 25px;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+
+#volume {
+  width: 100%;
+}

@@ -21,7 +21,10 @@ var config = {
         loader: "babel-loader",
         query: {
           presets: ["@babel/env", "@babel/react"],
-          plugins: ["@babel/plugin-proposal-class-properties"]
+          plugins: [
+            "@babel/plugin-proposal-class-properties",
+            "@babel/plugin-transform-runtime"
+          ]
         }
       },
       { test: /\.css$/, loader: "style-loader!css-loader" },

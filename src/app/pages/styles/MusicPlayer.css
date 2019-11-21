@@ -117,15 +117,6 @@
   background-color: #00758a;
 }
 
-/*-----MusicPlayer audio player styling-----*/
-.audioPlayer {
-  margin: 0;
-  padding: 0;
-  height: 100px;
-  width: 100%;
-  background-color: #00cccc;
-}
-
 /*-----MusicPlayer page component(page) styling-----*/
 .Browse,
 .Genres,
