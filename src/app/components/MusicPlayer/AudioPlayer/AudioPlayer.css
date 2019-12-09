@@ -4,15 +4,45 @@
   position: sticky;
   margin: 0;
   padding: 0;
-  height: 100px;
+  height: 120px;
+  max-height: 120px;
   width: 100%;
+  min-width: 800px;
   background-color: #00cccc;
   /* background-color: #005766; */
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+/*-----Track info styling-----*/
+#trackInfo {
+  width: 160px;
+  min-width: 80px;
+  max-height: 90px;
+  font-size: 1.2rem;
+}
+
+#trackInfo-name {
+  font-weight: 700;
+}
+
+#trackInfo-artist {
+  line-height: 1rem;
+}
+
+/*-----Player controls and time styleing-----*/
+.playerMain {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  min-width: 200px;
 }
 
 .controls {
-  float: left;
-}
+  margin: 0;
+  width: 100%;
+  justify-content: center;
+} 
 
 .controls > a {
   text-decoration: none;
@@ -27,55 +57,162 @@
 }
 
 .controls > a:hover {
-  background-color: #084380;
+  background-color: #005766;
   color: #b3b3b3;
 }
 
+.playerMain-mainrow {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  display: block;
+  padding: 0 1rem;
+}
+
+#progressRange {
+  width: 100%;
+}
+
 .progress {
-  position: absolute;
-  left: 102px;
-  top: 15px;
-  right: 300px;
-  bottom: 15px;
-  background: black;
   cursor: pointer;
+  width: 100%;
+  background: #00cccc;
+  height: 1.3rem;
 }
 
 .progress > .bar {
-  position: absolute;
-  left: 5px;
-  right: 5px;
-  top: 5px;
-  bottom: 5px;
-}
-
-.progress > .bar > div {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: white;
+  width: 100%;
+  height: 1rem;
 }
 
 .time {
-  position: absolute;
-  right: 200px;
-  width: 100px;
-  color: white;
-  font-size: 12px;
-  padding-top: 15px;
-  text-align: center;
+  width: 100%;
+  color: #005766;
+  margin: auto;
+  font-weight: 600;
 }
 
+#Time-current {
+  float: left;
+  width: 40px;
+  margin-left: 10px;
+}
+
+
+#Time-total {
+  float: right;
+  width: 40px;
+  margin-right: 40px
+}
+
+#Time-space {
+  width: calc(100% - 130px);
+}
+
+/*-----Player volume control styleing-----*/
 #volumeControl {
-  width: 150px;
-  height: 25px;
+  padding-right: 1rem;
   position: absolute;
-  right: 30px;
-  top: 15px;
+  width: 100%;
+  min-width: 185px;
+  height: 25px;
 }
 
 #volume {
-  width: 100%;
+  margin: 0 0.5rem 0 0.5rem;
+  width: 70%;
+  max-width: 250px;
 }
+
+#volumeUp {
+  float: right;
+}
+
+/*-----Input range (slider) style (custom generated from http://danielstern.ca/range.css/#/)*/
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #00cccc, 0px 0px 0px #00e5e6;
+  background: #004d6a;
+  border-radius: 25px;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 3px #000000, 0px 0px 0px #0d0d0d;
+  border: 1.1px solid #00ff00;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #00ffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #009bd5;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #00cccc, 0px 0px 0px #00e5e6;
+  background: #004d6a;
+  border-radius: 25px;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 3px #000000, 0px 0px 0px #0d0d0d;
+  border: 1.1px solid #00ff00;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #00ffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #000000;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #00cccc, 0px 0px 0px #00e5e6;
+}
+input[type=range]::-ms-fill-upper {
+  background: #004d6a;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #00cccc, 0px 0px 0px #00e5e6;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 3px #000000, 0px 0px 0px #0d0d0d;
+  border: 1.1px solid #00ff00;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #00ffff;
+  cursor: pointer;
+  height: 5px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #004d6a;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #009bd5;
+}
+
+

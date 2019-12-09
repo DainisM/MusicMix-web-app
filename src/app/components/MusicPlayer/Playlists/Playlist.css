@@ -7,6 +7,8 @@
   text-align: center;
   margin: 0;
   padding: 2rem;
+  width: 100%;
+  max-width: 2500px;
 }
 
 #playlist_name {
@@ -26,12 +28,105 @@
   font-weight: 600;
 }
 
+#playlist_updateBtn {
+  background-color: inherit;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.playlist_buttons {
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.playlist_buttons:hover {
+  color: #00cccc;
+  background-color: #005766;
+}
+
+/*Popup style*/
+.modal {
+  font-size: 12px;
+  min-width: 300px;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.EditPlaylistPopup {
+  text-align: center;
+  border: none;
+  background-color: #00adad;
+}
+
+.EditPlaylistPopup .row {
+  font-weight: 600;
+  justify-content: center;
+}
+
+.EditPlaylistPopup button {
+  margin: 0.5rem;
+}
+
+.EditPlaylistPopup label {
+  margin-right: 1rem;
+}
+
+/*Close button style POPUP*/
+.EditPlaylistPopup-close {
+  color: #005766;
+  background-color: #d3fdfd;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+}
+
+.EditPlaylistPopup-close:hover {
+  color: #005766;
+  background-color: #d3fdfd;
+  box-shadow: 0px 8px 15px #005766;
+}
+
+/*Save playlist style POPUP*/
+.EditPlaylistPopup-save {
+  color: #00cccc;
+  background-color: #005766;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+}
+
+.EditPlaylistPopup-save:hover {
+  color: #005766;
+  background-color: #00cccc;
+  box-shadow: 0px 8px 15px #005766;
+}
+
 /*Playlist track list style*/
 .playlistTracksList {
   justify-content: center;
   width: 100%;
+  max-width: 2500px;
   margin: 0;
   padding: 2rem;
+  height: 100%;
 }
 
 .playlistTrackLabel {
@@ -103,4 +198,39 @@
   font-size: 2rem;
   border: none;
   background-color: inherit;
+}
+
+.playlistTrackIcon{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  background-image: url("../../../images/MusicNote.png");
+  background-position: center;
+}
+
+.playlistTrackIcon:hover{
+  background-image: url("../../../images/MusicPlay.png");
+  background-position: center;
+}
+
+/*Popup style*/
+.PlaylistEditPopup {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border: none;
+  background-color: #00adad;
+}
+
+.PlaylistEditPopup button {
+  border: none;
+  width: 100%;
+  height: 1.8rem;
+  font-weight: 600;
+  background-color: #005766;
+}
+
+.PlaylistEditPopup button:hover {
+  color: #00cccc;
 }

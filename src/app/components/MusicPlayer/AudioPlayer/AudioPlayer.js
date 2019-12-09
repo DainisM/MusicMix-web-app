@@ -4,7 +4,9 @@ import {
   faForward,
   faBackward,
   faPause,
-  faPlay
+  faPlay,
+  faVolumeUp,
+  faVolumeDown
 } from "@fortawesome/free-solid-svg-icons";
 import "./AudioPlayer.css";
 
@@ -114,58 +116,77 @@ class AudioPlayer extends React.Component {
     }
 
     return (
-      <div className="audioPlayer">
+      <div className="row audioPlayer">
         {/*Div for displaying current song name and artists*/}
-        <div>
-          <p>{this.props.name}</p>
-          <p>{this.props.artist}</p>
-        </div>
-        {/*Div for displaying audio player control buttons such as play,pause,forward and backward
-          and invoking methods when clicked*/}
-        <div className="controls">
-          <a onClick={this.props.onPrev}>
-            <FontAwesomeIcon icon={faBackward} />
-          </a>
-          <a onClick={this.togglePlay.bind(this)}>
-            {<FontAwesomeIcon icon={!this.state.playing ? faPlay : faPause} />}
-          </a>
-          <a onClick={this.props.onNext}>
-            <FontAwesomeIcon icon={faForward} />
-          </a>
+        <div className="col-lg-2" id="trackInfo">
+          <p id="trackInfo-name">{this.props.name}</p>
+          <p id="trackInfo-artist">{this.props.artist[0]} {this.props.artist[1]}</p>
         </div>
 
-        {/*Div for showing progress bar and progress time*/}
-        <div
-          /*Controls of progress bar which calls needed methods for clicking and dragging (setting) progress*/
-          onMouseDown={this.startSetProgress.bind(this)}
-          onMouseMove={this.setProgress.bind(this)}
-          onMouseLeave={this.stopSetProgress.bind(this)}
-          onMouseUp={this.stopSetProgress.bind(this)}
-          className="progress"
-        >
-          {/*Progress bar for displaying progress of the song*/}
-          <div ref={ref => (this.progress_bar = ref)} className="bar">
-            <div style={{ width: this.state.progress * 100 + "%" }}></div>
+        <div className="col-lg-8 playerMain">
+          {/*Div for displaying audio player control buttons such as play,pause,forward and backward
+          and invoking methods when clicked*/}
+          <div className="row controls">
+            <a onClick={this.props.onPrev}>
+              <FontAwesomeIcon icon={faBackward} />
+            </a>
+            <a onClick={this.togglePlay.bind(this)}>
+              {<FontAwesomeIcon icon={!this.state.playing ? faPlay : faPause} />}
+            </a>
+            <a onClick={this.props.onNext}>
+              <FontAwesomeIcon icon={faForward} />
+            </a>
+          </div>
+
+          {/*Showing current time and total song duration*/}
+          <div className="row time">
+            <div id="Time-current">{formatTime(currentTime)}</div>
+            <div id="Time-space"></div>
+            <div id="Time-total">{formatTime(totalTime)}</div>
+          </div>
+
+          <div className="row playerMain-mainrow">
+            {/*Div for showing progress bar and progress time*/}
+            <div
+              /*Controls of progress bar which calls needed methods for clicking and dragging (setting) progress*/
+              onMouseDown={this.startSetProgress.bind(this)}
+              onMouseMove={this.setProgress.bind(this)}
+              onMouseLeave={this.stopSetProgress.bind(this)}
+              onMouseUp={this.stopSetProgress.bind(this)}
+              className="progress"
+            >
+              {/*Progress bar for displaying progress of the song*/}
+              <div ref={ref => (this.progress_bar = ref)} className="bar">
+                {/* <div style={{ width: this.state.progress * 100 + "%" }}></div> */}
+                <input
+                  id="progressRange"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value={this.state.progress * 100}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        {/*Showing current time and total song duration*/}
-        <div className="time">
-          {formatTime(currentTime)} / {formatTime(totalTime)}
-        </div>
-
-        {/*Div for showing volume slider and controlling song volume by clicking and/or dragging on volume bar*/}
-        <div id="volumeControl">
-          <input
-            ref={ref => (this.volumeBar = ref)}
-            id="volume"
-            type="range"
-            min="0"
-            max="100"
-            step="1"
-            onInput={this.SetVolume.bind(this)}
-            onChange={this.SetVolume.bind(this)}
-          ></input>
+        <div className="col-lg-2">
+          {/*Div for showing volume slider and controlling song volume by clicking and/or dragging on volume bar*/}
+          <div className="row" id="volumeControl">
+            <FontAwesomeIcon id="volumeDown" icon={faVolumeDown} />
+            <input
+              ref={ref => (this.volumeBar = ref)}
+              id="volume"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              onInput={this.SetVolume.bind(this)}
+              onChange={this.SetVolume.bind(this)}
+            ></input>
+            <FontAwesomeIcon id="volumeUp" icon={faVolumeUp} />
+          </div>
         </div>
 
         {/*Audio tag which recives song url and plays it depending on state*/}
