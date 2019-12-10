@@ -66,9 +66,9 @@ class PlaylistList extends React.Component {
       playlistNameError = "Please give your new playlist a name!";
     } else if (
       this.state.playlistName.length < 3 ||
-      this.state.playlistName.length > 20
+      this.state.playlistName.length > 15
     ) {
-      playlistNameError = "Name must be between 3 and 20 characters long!";
+      playlistNameError = "Name must be between 3 and 15 characters long!";
     } else if (this.state.playlistDescription.length > 150) {
       playlistDescriptionError = "Description can be max 150 characters long!";
     } else if (this.state.playlistImage === null) {

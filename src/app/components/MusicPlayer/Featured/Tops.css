@@ -1,55 +1,54 @@
-/*Genre info style*/
-.genreInfo {
-  display: inline-block;
-  justify-content: left;
+/*tops info style*/
+.topsInfo {
+  display: block;
+  justify-content: center;
   text-align: center;
-  margin: 0;
+  margin: auto;
   padding: 2rem;
   width: 40%;
-  vertical-align: top;
   min-width: 350px;
 }
 
-#genre_name {
+#tops_name {
   font-size: 2rem;
   font-weight: 600;
   color: #022930;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-#genre_description {
+#tops_description {
   font-size: 1.3rem;
   color: #012830;
 }
 
-/*Genre tracks style*/
-.genreTracksList {
+/*tops tracks style*/
+.topsTracksList {
   display: inline-block;
   justify-content: right;
-  width: 60%;
+  width: 100%;
   margin: 0;
   padding: 2rem;
   height: 100%;
 }
 
-.genreTrackLabel {
+.topsTrackLabel {
   font-weight: 600;
   padding: 4px;
   border: 2px solid black;
   border-radius: 2rem;
 }
 
-.genreTrackName {
+.topsTrackName {
   font-weight: 800;
 }
 
-.genreTrackArtist {
+.topsTrackArtist {
   font-weight: 500;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.genreTracks {
+.topsTracks {
   width: 100%;
   min-width: 700px;
   height: 70px;
@@ -58,11 +57,11 @@
   padding: 0.5rem;
 }
 
-.genreTracks:hover {
+.topsTracks:hover {
   background-color: #005766;
 }
 
-.genreTrackBtn {
+.topsTrackBtn {
   padding: 0;
   margin: 0;
   font-size: 2rem;

@@ -235,7 +235,6 @@ class Playlist extends React.Component {
       //Fetch response
       fetch(request, myInit)
         .then(response => {
-          console.log(response);
           if (response.ok) {
             location.reload();
           }

@@ -1,6 +1,11 @@
 #SearchMain {
-  padding: 2rem;
   min-width: 620px;
+  display: inline-block;
+  justify-content: right;
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
+  height: 100%;
 }
 
 /* Search input field*/
@@ -32,7 +37,7 @@
   display: inline-block;
   justify-content: right;
   width: 60%;
-  margin: 0;
+  margin: 2rem;
   padding: 2rem;
 }
 

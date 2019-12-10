@@ -1,6 +1,7 @@
 /*-----MusicPlayer audio player styling-----*/
 .audioPlayer {
   bottom: 0;
+  left: 0;
   position: sticky;
   margin: 0;
   padding: 0;
@@ -10,7 +11,6 @@
   min-width: 800px;
   background-color: #00cccc;
   /* background-color: #005766; */
-  overflow-y: auto;
   overflow-x: auto;
 }
 

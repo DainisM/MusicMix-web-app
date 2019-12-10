@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //Other component imports
 import Home from "./pages/Home";
@@ -16,6 +18,20 @@ import MusicPlayer from "./pages/MusicPlayer";
 import Profile from "./pages/Profile";
 
 const history = createBrowserHistory();
+
+//Notification message popup configuration 
+toast.configure();
+<ToastContainer
+  position="bottom-center"
+  autoClose={2000}
+  hideProgressBar
+  newestOnTop={false}
+  closeOnClick
+  rtl={false}
+  pauseOnVisibilityChange
+  draggable
+  pauseOnHover={false}
+/>
 
 class App extends Component {
   //Method which checks if userId in localstorage is older than 8 hours then delete

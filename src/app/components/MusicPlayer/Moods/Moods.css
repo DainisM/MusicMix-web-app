@@ -1,0 +1,11 @@
+/*Moods list style*/
+.moodsListGenre {
+  margin: 2rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.moodsList {
+  justify-content: center;
+  width: 100%;
+}

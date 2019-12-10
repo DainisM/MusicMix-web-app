@@ -1,0 +1,17 @@
+/*Featured list style*/
+.featuredListGenre {
+  margin: 2rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.newestLink {
+  margin: 2rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.featuredList {
+  justify-content: center;
+  width: 100%;
+}

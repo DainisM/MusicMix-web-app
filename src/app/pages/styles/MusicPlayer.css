@@ -118,13 +118,16 @@
 }
 
 /*-----MusicPlayer page component(page) styling-----*/
-.Browse,
+.Featured,
+.Newest,
+.Tops,
 .Genres,
 .Moods,
 .Search,
 .Playlist,
 .Artist,
-.Genre {
+.Genre,
+.Mood {
   background: #00758a;
   background: -moz-linear-gradient(
     top,
@@ -153,6 +156,44 @@
   position: absolute;
   overflow-y: auto;
   overflow-x: auto;
+}
+
+/*Popup styles in music player*/
+.noUserPlalist {
+  margin: 0;
+  padding: 10px;
+  border: none;
+  background-color: #00cccc;
+}
+
+.noUserPlalist p {
+  color: #013e49;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.userPlaylistAdd {
+  padding: 10px;
+  background-color: #00cccc;
+}
+
+.userPlaylistAdd p {
+  color: #005766;
+  font-weight: 600;
+}
+
+.userPlaylistAdd button {
+  width: 98%;
+  background-color: #005766;
+  border: none;
+  border-radius: 2rem;
+  padding: 7px;
+  margin: 5px;
+  font-weight: 600;
+}
+
+.userPlaylistAdd button:hover {
+  color: #00cccc;
 }
 
 /*-----Custom scrollbar-----*/

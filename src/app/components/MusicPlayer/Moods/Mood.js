@@ -6,7 +6,7 @@ import MusicplayerTopNav from "../Nav/MusicplayerTopNav";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import Popup from "reactjs-popup";
 import { toast } from 'react-toastify';
-import "./Genre.css";
+import "./Mood.css";
 
 //API Authorization
 const usertoken = localStorage.getItem("userToken");
@@ -18,12 +18,12 @@ header.append("Authorization", "Bearer " + usertoken);
 
 // Initialstate object
 const initalState = {
-  genreName: "",
-  genreDescription: "",
-  genreImage: "",
-  genreTracks: [],
+  moodName: "",
+  moodDescription: "",
+  moodImage: "",
+  moodTracks: [],
   showAudioPlayer: false,
-  genreTracksList: [],
+  moodTracksList: [],
   song_src: null,
   song_name: null,
   song_artist: null,
@@ -32,28 +32,24 @@ const initalState = {
   userHasPlaylist: false
 };
 
-class Genres extends React.Component {
+class Mood extends React.Component {
   //Setting state to initialState
   state = initalState;
 
-  //Method for calling fetch genre method and then after 0.5 second
-  // fetching 2.nd fetch method (Initialazed on render)
+  //Method for calling fetch mood method and showUserPlaylist method
   componentDidMount = () => {
-    this.renderGenre();
+    this.rendermood();
     this.showUserPlaylists();
-    setTimeout(() => {
-      this.renderGenreTracks();
-    }, 200);
   };
 
   //Method for handling user click and setting song url to state of the clicked div(which holds url)
   handleClick = e => {
-    var index = this.state.genreTracksList.findIndex(t => t == e.target.value);
+    var index = this.state.moodTracksList.findIndex(t => t == e.target.value);
     this.setState({
       song_src: e.target.value,
-      song_name: this.state.genreTracks[index].name,
-      song_artist: this.state.genreTracks[index].artist,
-      song_id: this.state.genreTracks[index]._id,
+      song_name: this.state.moodTracks[index].name,
+      song_artist: this.state.moodTracks[index].artist,
+      song_id: this.state.moodTracks[index]._id,
       showAudioPlayer: true
     });
   };
@@ -66,36 +62,36 @@ class Genres extends React.Component {
   //Method passed to audioPlayer which finds current song index in array of all song of the playlist
   // and sets next index song url to song_src state
   onPlayerNext() {
-    var index = this.state.genreTracksList.findIndex(t => t == this.state.song_src);
-    if (this.state.genreTracksList.length > index + 1) {
+    var index = this.state.moodTracksList.findIndex(t => t == this.state.song_src);
+    if (this.state.moodTracksList.length > index + 1) {
       this.setState({
-        song_src: this.state.genreTracksList[index + 1],
-        song_name: this.state.genreTracks[index + 1].name,
-        song_artist: this.state.genreTracks[index + 1].artist,
-        song_id: this.state.genreTracks[index + 1]._id
+        song_src: this.state.moodTracksList[index + 1],
+        song_name: this.state.moodTracks[index + 1].name,
+        song_artist: this.state.moodTracks[index + 1].artist,
+        song_id: this.state.moodTracks[index + 1]._id
       });
     } else {
       this.setState({
-        song_src: this.state.genreTracksList[0],
-        song_name: this.state.genreTracks[0].name,
-        song_artist: this.state.genreTracks[0].artist,
-        song_id: this.state.genreTracks[0]._id
+        song_src: this.state.moodTracksList[0],
+        song_name: this.state.moodTracks[0].name,
+        song_artist: this.state.moodTracks[0].artist,
+        song_id: this.state.moodTracks[0]._id
       });
     }
   }
 
   //Method passed to audioPlayer hich finds current song index in array of all songs and then sets song_src url to previous index url
   onPlayerPrev() {
-    var index = this.state.genreTracksList.findIndex(t => t == this.state.song_src);
+    var index = this.state.moodTracksList.findIndex(t => t == this.state.song_src);
     if (index - 1 < 0) {
       console.log("No more songs");
       return false;
     } else {
       this.setState({
-        song_src: this.state.genreTracksList[index - 1],
-        song_name: this.state.genreTracks[index - 1].name,
-        song_artist: this.state.genreTracks[index - 1].artist,
-        song_id: this.state.genreTracks[index - 1]._id
+        song_src: this.state.moodTracksList[index - 1],
+        song_name: this.state.moodTracks[index - 1].name,
+        song_artist: this.state.moodTracks[index - 1].artist,
+        song_id: this.state.moodTracks[index - 1]._id
       });
       return true;
     }
@@ -119,12 +115,12 @@ class Genres extends React.Component {
     }
   };
 
-  //Method for fetching genre data
-  renderGenre() {
+  //Method for fetching mood data
+  rendermood() {
     axios
       .get(
-        "http://api.music-mix.live/browse/genres/" +
-        this.props.match.params.genreId,
+        "http://api.music-mix.live/browse/moods/" +
+        this.props.match.params.moodId,
         {
           headers: { Authorization: authString }
         }
@@ -132,32 +128,12 @@ class Genres extends React.Component {
       .then(res => {
         //IF response ok then set data to state
         this.setState({
-          genreName: res.data.name,
-          genreDescription: res.data.description,
-          genreImage: res.data.links.image
-        });
-      })
-      .catch(error => {
-        console.log("error " + error);
-      });
-  }
-
-  //Method for fetching tracks for specific genre
-  renderGenreTracks() {
-    axios
-      .get(
-        "http://api.music-mix.live/browse/genres/tracks/" +
-        this.state.genreName,
-        {
-          headers: { Authorization: authString }
-        }
-      )
-      .then(res => {
-        //If response ok then set data to state
-        this.setState({
-          genreTracks: res.data.tracks,
-          genreTracksList: res.data.tracks.map(
-            tracks => tracks.url
+          moodName: res.data.response.playlist[0].name,
+          moodDescription: res.data.response.playlist[0].description,
+          moodImage: res.data.response.playlist[0].image,
+          moodTracks: res.data.response.playlist[0].tracks,
+          moodTracksList: res.data.response.playlist[0].tracks.map(
+            tracks => "http://api.music-mix.live" + tracks.url.split("..")[1]
           )
         });
       })
@@ -229,63 +205,63 @@ class Genres extends React.Component {
   render() {
     return (
       <MusicPlayerLayout>
-        <div className="Genre">
+        <div className="Mood">
           <MusicplayerTopNav />
-          {/*Div for genre image, name and description*/}
-          <div className="genreInfo">
-            <img src={this.state.genreImage} height="300px" width="300px" />
-            <h4 id="genre_name">{this.state.genreName}</h4>
-            <p id="genre_description">{this.state.genreDescription}</p>
+          {/*Div for mood image, name and description*/}
+          <div className="moodInfo">
+            <img src={this.state.moodImage} height="300px" width="300px" />
+            <h4 id="mood_name">{this.state.moodName}</h4>
+            <p id="mood_description">{this.state.moodDescription}</p>
           </div>
-          {/*Div for genre songs*/}
-          <div className="genreTracksList">
-            {this.state.genreTracks.map(genreTracks => (
-              <span className="row genreTracks" key={genreTracks._id} style={{
-                background: genreTracks._id === this.state.song_id ? "#005766" : "none"
+          {/*Div for mood songs*/}
+          <div className="moodTracksList">
+            {this.state.moodTracks.map(moodTracks => (
+              <span className="row moodTracks" key={moodTracks._id} style={{
+                background: moodTracks._id === this.state.song_id ? "#005766" : "none"
               }}>
                 <span className="col1">
                   <button
                     className="playlistTrackIcon"
                     value={
-                      genreTracks.url
+                      "http://api.music-mix.live" + moodTracks.url.split("..")[1]
                     }
                     onClick={this.handleClick}
                   ></button>
                 </span>
                 <span className="col2">
-                  <p className="genreTrackName">{genreTracks.name}</p>
+                  <p className="moodTrackName">{moodTracks.name}</p>
                   {/*Links to artist*/}
                   <Link
-                    className="genreTrackArtist"
+                    className="moodTrackArtist"
                     to={{
-                      pathname: "/player/artist/" + genreTracks.artist_id[0]
+                      pathname: "/player/artist/" + moodTracks.artist_id[0]
                     }}
-                    params={{ artistId: genreTracks.artist_id[0] }}
+                    params={{ artistId: moodTracks.artist_id[0] }}
                   >
-                    {genreTracks.artist[0]}
+                    {moodTracks.artist[0]}
                   </Link>
                   <Link
-                    className="genreTrackArtist"
+                    className="moodTrackArtist"
                     to={{
-                      pathname: "/player/artist/" + genreTracks.artist_id[1]
+                      pathname: "/player/artist/" + moodTracks.artist_id[1]
                     }}
-                    params={{ artistId: genreTracks.artist_id[1] }}
+                    params={{ artistId: moodTracks.artist_id[1] }}
                   >
-                    &#160;{genreTracks.artist[1]}
+                    &#160;{moodTracks.artist[1]}
                   </Link>
                   <Link
-                    className="genreTrackArtist"
+                    className="moodTrackArtist"
                     to={{
-                      pathname: "/player/artist/" + genreTracks.artist_id[2]
+                      pathname: "/player/artist/" + moodTracks.artist_id[2]
                     }}
-                    params={{ artistId: genreTracks.artist_id[2] }}
+                    params={{ artistId: moodTracks.artist_id[2] }}
                   >
-                    &#160;{genreTracks.artist[2]}
+                    &#160;{moodTracks.artist[2]}
                   </Link>
                 </span>
                 <span className="col3">
-                  {genreTracks.explicit === true ? (
-                    <label className="genreTrackLabel">EXPLICIT</label>
+                  {moodTracks.explicit === true ? (
+                    <label className="moodTrackLabel">EXPLICIT</label>
                   ) : null}
                 </span>
                 <span className="col4">
@@ -305,9 +281,9 @@ class Genres extends React.Component {
 
                     {/*If user has playlists this div will be displayed with buttons for all user playlists*/}
                     <div className="userPlaylistAdd" style={{ display: this.state.userHasPlaylist ? "block" : "none" }}>
-                      <p>Choose a playlist:</p>
+                      <p>Add song to playlist:</p>
                       {this.state.userPlaylists.map(userPlaylist => (
-                        <button name={genreTracks._id} value={userPlaylist._id} onClick={this.addToPlaylist}>{userPlaylist.name}</button>
+                        <button name={moodTracks._id} value={userPlaylist._id} onClick={this.addToPlaylist}>{userPlaylist.name}</button>
                       ))}
                     </div>
                   </Popup>
@@ -322,4 +298,4 @@ class Genres extends React.Component {
   }
 }
 
-export default Genres;
+export default Mood;

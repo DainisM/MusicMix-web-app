@@ -49,14 +49,16 @@ const MusicplayerSideNav = () => {
         </a>
         <br />
         {/*If there is no userId in localStorage this "Logout" button will be shown*/}
-        <button
-          className="logoutbutton-musicplayer"
-          onClick={() => {
-            window.localStorage.clear(), location.reload();
-          }}
-        >
-          Log out
+        <a href="/">
+          <button
+            className="logoutbutton-musicplayer"
+            onClick={() => {
+              window.localStorage.clear();
+            }}
+          >
+            Log out
         </button>
+        </a>
       </div>
       {/*If there is userId in localStorage this logout button wil be shown*/}
       <a
