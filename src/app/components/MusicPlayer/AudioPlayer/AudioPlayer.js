@@ -118,12 +118,12 @@ class AudioPlayer extends React.Component {
     return (
       <div className="row audioPlayer">
         {/*Div for displaying current song name and artists*/}
-        <div className="col-lg-2" id="trackInfo">
+        <div id="trackInfo">
           <p id="trackInfo-name">{this.props.name}</p>
           <p id="trackInfo-artist">{this.props.artist[0]} {this.props.artist[1]}</p>
         </div>
 
-        <div className="col-lg-8 playerMain">
+        <div className="playerMain">
           {/*Div for displaying audio player control buttons such as play,pause,forward and backward
           and invoking methods when clicked*/}
           <div className="row controls">
@@ -171,7 +171,7 @@ class AudioPlayer extends React.Component {
           </div>
         </div>
 
-        <div className="col-lg-2">
+        <div className="VolumeMain">
           {/*Div for showing volume slider and controlling song volume by clicking and/or dragging on volume bar*/}
           <div className="row" id="volumeControl">
             <FontAwesomeIcon id="volumeDown" icon={faVolumeDown} />
@@ -195,6 +195,7 @@ class AudioPlayer extends React.Component {
           ref={ref => (this.player = ref)}
           src={this.props.src}
           autoPlay={this.state.playing}
+          type="audio/ogg"
         />
       </div>
     );

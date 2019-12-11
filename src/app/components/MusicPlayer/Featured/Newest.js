@@ -121,7 +121,6 @@ class Newest extends React.Component {
         }
       )
       .then(res => {
-        console.log(res.data.tracks)
         //IF response ok then set data to state
         this.setState({
           newestTracks: res.data.tracks,
