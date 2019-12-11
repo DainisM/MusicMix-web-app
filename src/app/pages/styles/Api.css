@@ -27,6 +27,12 @@ h3 {
   padding: 0;
 }
 
+.sepereate {
+  margin-top: 2rem;
+  width: 100%;
+  border-bottom: 2px dotted black;
+}
+
 /*Menu style*/
 .menu {
   margin: 0;
@@ -36,7 +42,7 @@ h3 {
 }
 
 .mainItems {
-  line-height: 0.3rem;
+  line-height: 1rem;
 }
 
 /*Submenu style*/

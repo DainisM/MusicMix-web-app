@@ -22,67 +22,31 @@ const SideNav = () => {
           <a href="#api-endpoints">API Endpoints</a>
           <ul className="submenu">
             <li>
-              <a href="#get-users-profile">GET User´s profile</a>
+              <a href="#users-profile">User´s profile</a>
             </li>
             <li>
-              <a href="#patch-users-profile">PATCH User´s profile</a>
+              <a href="#tracks">Tracks</a>
             </li>
             <li>
-              <a href="#patch-users-pass">PATCH User´s password</a>
+              <a href="#artists">Artists</a>
             </li>
             <li>
-              <a href="#get-tracks">GET Tracks</a>
+              <a href="#search">Search</a>
             </li>
             <li>
-              <a href="#get-trackId">GET Specific Track</a>
+              <a href="#newest">Newest Tracks</a>
             </li>
             <li>
-              <a href="#get-artists">GET Artists</a>
+              <a href="#genres">Genres</a>
             </li>
             <li>
-              <a href="#get-specific-artist">GET Specific Artist</a>
+              <a href="#moods">Moods</a>
             </li>
             <li>
-              <a href="#get-all-artist-tracks">GET All Artist Tracks</a>
+              <a href="#tops">Tops</a>
             </li>
             <li>
-              <a href="#search-tracks">Search for tracks</a>
-            </li>
-            <li>
-              <a href="#search-artists">Search for artists</a>
-            </li>
-            <li>
-              <a href="#get-newest-tracks">GET Newest Tracks</a>
-            </li>
-            <li>
-              <a href="#get-genres">GET Genres</a>
-            </li>
-            <li>
-              <a href="#get-specific-genre">GET Genre Tracks</a>
-            </li>
-            <li>
-              <a href="#get-moods">GET Moods</a>
-            </li>
-            <li>
-              <a href="#get-specific-moods">GET Specific Mood</a>
-            </li>
-            <li>
-              <a href="#get-user-playlists">GET User Playlists</a>
-            </li>
-            <li>
-              <a href="#get-user-playlist-tracks">GET Playlist Tracks</a>
-            </li>
-            <li>
-              <a href="#post-user-playlist">POST User Playlist</a>
-            </li>
-            <li>
-              <a href="#patch-user-playlist">PATCH User Playlist</a>
-            </li>
-            <li>
-              <a href="#remove-playlist-track">Remove Playlist Track</a>
-            </li>
-            <li>
-              <a href="#delete-user-playlist">DELETE User Playlist</a>
+              <a href="#user-playlists">User Playlists</a>
             </li>
           </ul>
         </li>

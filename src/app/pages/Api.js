@@ -59,6 +59,7 @@ const Api = () => {
                   </tr>
                 </tbody>
               </table>
+              <div className="sepereate"></div>
               <h3 id="response-status-codes">Response Codes</h3>
               <p>
                 API uses the following response status codes, as defined in the{" "}
@@ -130,6 +131,7 @@ const Api = () => {
                   </tr>
                 </tbody>
               </table>
+              <div className="sepereate"></div>
               <h3 id="authorization">Authorization</h3>
               <p>
                 Making authorized requests to the MusicMix platform requires
@@ -270,11 +272,14 @@ const Api = () => {
                   Bearer some1231jwt213token12312e"
                 </code>
               </p>
+              <div className="sepereate"></div>
               <h3 id="api-endpoints">API Endpoints</h3>
               <p>Header Field is requested for all enpoint requests</p>
+              <h4 id="users-profile">User´s Profile</h4>
+              <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-users-profile">GET Users´s profile</h5>
+                  <h5>GET Users´s profile</h5>
                   <em>To get users profile information:</em> <br />
                   <code className="language-curl-command">
                     curl -X GET
@@ -364,7 +369,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="patch-users-profile">PATCH Users´s profile</h5>
+                  <h5>PATCH Users´s profile</h5>
                   <em>
                     To edit users profile information use body parameters:
                   </em>
@@ -447,7 +452,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="patch-users-pass">PATCH Users´s password</h5>
+                  <h5>PATCH Users´s password</h5>
                   <em>To edit users password body parameters:</em>
                   <table>
                     <thead>
@@ -478,11 +483,12 @@ const Api = () => {
                   </code>
                 </div>
               </div>
+              <div className="sepereate"></div>
               <br />
-              <br />
+              <h4 id="tracks">Tracks</h4>
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-tracks">GET Tracks</h5>
+                  <h5>GET Tracks</h5>
                   <em>To get all tracks:</em> <br />
                   <code className="language-curl-command">
                     curl -X GET "https://music-mix.live/tracks" -H
@@ -590,7 +596,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-trackId">GET Specific Track</h5>
+                  <h5>GET Specific Track</h5>
                   <em>To get specific track use track ID:</em>
                   <br />
                   <code className="language-curl-command">
@@ -676,10 +682,12 @@ const Api = () => {
                   </code>
                 </div>
               </div>
+              <div className="sepereate"></div>
               <br />
+              <h4 id="artists">Artists</h4>
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-artists">GET Artists</h5>
+                  <h5>GET Artists</h5>
                   <em>To get all artists:</em>
                   <br />
                   <code className="language-curl-command">
@@ -776,7 +784,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-specific-artist">GET Specific Artist</h5>
+                  <h5>GET Specific Artist</h5>
                   <em>To get specific artist information use artist ID:</em>
                   <br />
                   <code className="language-curl-command">
@@ -883,7 +891,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-all-artist-tracks">GET All Artist Tracks</h5>
+                  <h5>GET All Artist Tracks</h5>
                   <em>
                     To get all tracks of specific artist use .../tracks and
                     artistID:
@@ -996,14 +1004,17 @@ const Api = () => {
                   </code>
                 </div>
               </div>
+              <div className="sepereate"></div>
+              <br />
+              <h4 id="search">Search</h4>
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="search-tracks">Search for tracks</h5>
-                  <em>To find tracks use keyword (case insensitive):</em>
+                  <h5>Search for tracks and artists</h5>
+                  <em>To find tracks use keyword (case insensitive) .../search/&#123;keyword&#125;:</em>
                   <br />
                   <code className="language-curl-command">
-                    curl -X GET "https://music-mix.live/search/tracks/pain" -H
+                    curl -X GET "http://api.music-mix.live/search/par" -H
                     "Authorization: Bearer &#91;your JWT token&#93;"
                   </code>
                   <table>
@@ -1060,164 +1071,42 @@ const Api = () => {
                 </div>
                 <div className="col-lg-6 right">
                   <code>
-                    &#123;
-                    <br /> "count": 2,
-                    <br /> "tracks": [<br /> &#123;
-                    <br /> "_id": "5daef957ab857c13f9369836",
-                    <br /> "artist": "Three Days Grace",
-                    <br />
-                    "name": "Pain",
-                    <br /> "release": "Fri Oct 02 2009",
-                    <br /> "explicit": false,
-                    <br /> "url":
-                    "../uploads/songs/1571748161332Three_days_grace-Pain.mp3"
+                    &#123;<br />
+                    &#123;<br />
+                    "_id": "5daefaa9ab857c13f936983a",<br />
+                    "artist_id": [
+                        "5daee91fab857c13f9369809"
+                    ],<br />
+                    "artist": [
+                        "Linkin Park"
+                    ],<br />
+                    "name": "Numb",<br />
+                    "release": "Sat Nov 08 2003",<br />
+                    "explicit": false,<br />
+                    "url": "http://api.music-mix.live/uploads/songs/1571748491761Linkin_park-Numb.mp3"<br />
+                    &#125;,<br />
+                    &#123;<br />
+                    "_id": "5de8ceb345c9150dbcdf5c57",<br />
+                    "artist_id": [
+                        "5de79adc53973808c55bbc5e"
+                    ],<br />
+                    "artist": [
+                        "Rompasso"
+                    ],<br />
+                    "name": "Paradise",<br />
+                    "release": "Sat May 11 2019",<br />
+                    "explicit": false,<br />
+                    "url": "http://api.music-mix.live/uploads/songs/1575538328604Rompasso-Paradise.mp3"<br />
                     &#125;,
-                    <br /> &#123;
-                    <br /> "_id": "5daef9a3ab857c13f9369837",
-                    <br /> "artist": "Three Days Grace",
-                    <br /> "name": "Painkiller",
-                    <br /> "release": "Mon Mar 31 2014",
-                    <br /> "explicit": false,
-                    <br /> "url":
-                    "../uploads/songs/1571748229619Three_days_grace-Painkiller.mp3"
-                    &#125;
-                    <br /> ] &#125;
                   </code>
                 </div>
               </div>
+              <div className="sepereate"></div>
               <br />
+              <h4 id="newest">Newest Tracks</h4>
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="search-artists">Search for artists</h5>
-                  <em>To find artists use keyword (case insensitive):</em>
-                  <br />
-                  <code className="language-curl-command">
-                    curl -X GET "https://music-mix.live/search/artists/slip" -H
-                    "Authorization: Bearer &#91;your JWT token&#93;"
-                  </code>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Key</th>
-                        <th>Value Type</th>
-                        <th>Value Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>count</td>
-                        <td>number</td>
-                        <td>The number of artists found.</td>
-                      </tr>
-                      <tr>
-                        <td>artists</td>
-                        <td>array of artists</td>
-                        <td>The artists.</td>
-                      </tr>
-                      <tr>
-                        <td>_id</td>
-                        <td>string</td>
-                        <td>The MusicMix ID of the artist.</td>
-                      </tr>
-                      <tr>
-                        <td>name</td>
-                        <td>string</td>
-                        <td>The name of the artist.</td>
-                      </tr>
-                      <tr>
-                        <td>details</td>
-                        <td>details object</td>
-                        <td>Details object of the artist.</td>
-                      </tr>
-                      <tr>
-                        <td>type</td>
-                        <td>string</td>
-                        <td>The type, can be "Artist", "Band", "Dj" etc.</td>
-                      </tr>
-                      <tr>
-                        <td>carrier_start</td>
-                        <td>number</td>
-                        <td>The year of when carrier started.</td>
-                      </tr>
-                      <tr>
-                        <td>location</td>
-                        <td>string</td>
-                        <td>The location of origin of the artist/band.</td>
-                      </tr>
-                      <tr>
-                        <td>active</td>
-                        <td>string</td>
-                        <td>
-                          Can be "yes" or "no" representing if artist/band is
-                          active.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>urls</td>
-                        <td>urls object</td>
-                        <td>Urls object of the artist.</td>
-                      </tr>
-                      <tr>
-                        <td>image</td>
-                        <td>string</td>
-                        <td>The link of the image for the artist/band.</td>
-                      </tr>
-                      <tr>
-                        <td>external_url</td>
-                        <td>string</td>
-                        <td>The link to artist official page or web.</td>
-                      </tr>
-                      <tr>
-                        <td>request</td>
-                        <td>request object</td>
-                        <td>
-                          The information of how to get full information of the
-                          track.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>type</td>
-                        <td>HTTP verb</td>
-                        <td>The HTTP request verb to use.</td>
-                      </tr>
-                      <tr>
-                        <td>description</td>
-                        <td>string</td>
-                        <td>Description of what this requesst does.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div className="col-lg-6 right">
-                  <code>
-                    &#123;
-                    <br /> "count": 1, <br /> "artists": [<br /> &#123; <br />
-                    "_id": "5daee9a2ab857c13f936980b",
-                    <br /> "name": "Slipknot",
-                    <br /> "details": &#123;
-                    <br /> "type": "Band",
-                    <br /> "carrier_start": 1995,
-                    <br /> "location": "Des Moines, Iowa, USA",
-                    <br /> "active": "Yes" &#125; ,<br /> "urls": &#123;
-                    <br /> "image":
-                    "../uploads/images/1571744161132Slipknot.jpg",
-                    <br /> "external_url": "https://www.slipknot1.com/" &#125; ,
-                    <br />
-                    "request": &#123; <br />
-                    "type": "GET", <br />
-                    "description": "Get all the tracks for this artist",
-                    <br /> "ulr":
-                    "music-mix.live/artists/tracks/5daee9a2ab857c13f936980b"
-                    &#125;
-                    <br /> &#125;
-                    <br /> ] &#125;
-                  </code>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-lg-6 left">
-                  <h5 id="get-newest-tracks">GET Newest Tracks</h5>
+                  <h5>GET Newest Tracks</h5>
                   <em>To get the newest tracks (returns top 20 newest):</em>
                   <br />
                   <code className="language-curl-command">
@@ -1309,10 +1198,13 @@ const Api = () => {
                   </code>
                 </div>
               </div>
+              <div className="sepereate"></div>
+              <br />
+              <h4 id="genres">Genres</h4>
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-genres">GET Genres</h5>
+                  <h5>GET Genres</h5>
                   <em>To get the list of all genres:</em>
                   <br />
                   <code className="language-curl-command">
@@ -1401,9 +1293,10 @@ const Api = () => {
                 </div>
               </div>
               <br />
+              <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-specific-genre">GET Genre Tracks</h5>
+                  <h5>GET Genre Tracks</h5>
                   <em>To get the all tracks of the genre use genre name:</em>
                   <br />
                   <code className="language-curl-command">
@@ -1492,10 +1385,12 @@ const Api = () => {
                   </code>
                 </div>
               </div>
+              <div className="sepereate"></div>
               <br />
+              <h4 id="moods">Moods</h4>
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-moods">GET Moods</h5>
+                  <h5>GET Moods</h5>
                   <em>To get the list of all the moods playlists:</em>
                   <br />
                   <code className="language-curl-command">
@@ -1577,7 +1472,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-specific-moods">GET Specific Mood</h5>
+                  <h5>GET Specific Mood</h5>
                   <em>
                     To get the all the tracks for the specific mood (playlist)
                     use moodID:
@@ -1607,8 +1502,7 @@ const Api = () => {
                         <td>array of playlist</td>
                         <td>
                           Array of playlist, holds information about the current
-                          mood (playlist). See more{" "}
-                          <a href="#get-moods">GET Moods</a>.{" "}
+                          mood (playlist).
                         </td>
                       </tr>
                       <tr>
@@ -1620,7 +1514,7 @@ const Api = () => {
                         <td>tracks</td>
                         <td>array of tracks</td>
                         <td>
-                          Array of tracks, holds information about every signle
+                          Array of tracks, holds information about every single
                           track.
                         </td>
                       </tr>
@@ -1709,10 +1603,240 @@ const Api = () => {
                   </code>
                 </div>
               </div>
+              <div className="sepereate"></div>
+              <br />
+              <h4 id="tops">Tops</h4>
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-user-playlists">GET User Playlists</h5>
+                  <h5>GET Tops</h5>
+                  <em>To get the list of all the tops:</em>
+                  <br />
+                  <code className="language-curl-command">
+                    curl -X GET "https://music-mix.live/browse/tops" -H
+                    "Authorization: Bearer &#91;your JWT token&#93;"
+                  </code>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Key</th>
+                        <th>Value Type</th>
+                        <th>Value Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>count</td>
+                        <td>number</td>
+                        <td>The number of tops.</td>
+                      </tr>
+                      <tr>
+                        <td>tops</td>
+                        <td>array of tops</td>
+                        <td>The tops (playlists).</td>
+                      </tr>
+                      <tr>
+                        <td>_id</td>
+                        <td>string</td>
+                        <td>The MusicMix ID for the tops.</td>
+                      </tr>
+                      <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>The name of the top (playlist).</td>
+                      </tr>
+                      <tr>
+                        <td>description</td>
+                        <td>string</td>
+                        <td>Short description of the top (playlist).</td>
+                      </tr>
+                      <tr>
+                        <td>links</td>
+                        <td>links object</td>
+                        <td>Links object holds relevant links.</td>
+                      </tr>
+                      <tr>
+                        <td>image</td>
+                        <td>string</td>
+                        <td>The link of the image for the top.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="col-lg-6 right">
+                  <code>
+                    &#123;<br />
+                    "count": 2,<br />
+                    "tops": [<br />
+                    &#123;<br />
+                    "_id": "5de78a5a53973808c55bbc41",<br />
+                    "name": "Top of last 10 years",<br />
+                    "description": "Here are some of the best songs of the last 10 years (2010 - 2020)",<br />
+                    "links": &#123;<br />
+                    "image": "http://api.music-mix.live/uploads/images/1575455322439Top_of_last_10_years.jpg"
+                    &#125;<br />
+                    &#125;,<br />
+                    &#123;<br />
+                    "_id": "5de78aef53973808c55bbc42",<br />
+                    "name": "Editors top 15",<br />
+                    "description": "Top 15 songs by editors choice",<br />
+                    "links": &#123;<br />
+                    "image": "http://api.music-mix.live/uploads/images/1575455471106Editos.jpg"
+                      &#125;<br />
+                    &#125;<br />
+                    ]<br />
+                    &#125;
+                  </code>
+                </div>
+              </div>
+              <br />
+              <div className="row">
+                <div className="col-lg-6 left">
+                  <h5>GET Specific Top</h5>
+                  <em>
+                    To get the all the tracks for the specific top (playlist)
+                    use .../browse/tops/topID:
+                  </em>
+                  <br />
+                  <code className="language-curl-command">
+                    curl -X GET
+                    "https://music-mix.live/browse/tops/5de78aef53973808c55bbc42"
+                    -H "Authorization: Bearer &#91;your JWT token&#93;"
+                  </code>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Key</th>
+                        <th>Value Type</th>
+                        <th>Value Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>response</td>
+                        <td>response object</td>
+                        <td>Response object with all information.</td>
+                      </tr>
+                      <tr>
+                        <td>playlist</td>
+                        <td>array of playlist</td>
+                        <td>
+                          Array of playlist, holds information about the current
+                          top (playlist).
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>trackCount</td>
+                        <td>number</td>
+                        <td>The number of tracks for the top (playlist).</td>
+                      </tr>
+                      <tr>
+                        <td>tracks</td>
+                        <td>array of tracks</td>
+                        <td>
+                          Array of tracks, holds information about every single
+                          track.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>artist_id</td>
+                        <td>array of artist_id`s</td>
+                        <td>The array holds all artist ID of the track.</td>
+                      </tr>
+                      <tr>
+                        <td>genres</td>
+                        <td>array og genres</td>
+                        <td>The array holds genre values of the track.</td>
+                      </tr>
+                      <tr>
+                        <td>explicit</td>
+                        <td>boolean</td>
+                        <td>
+                          The Boolean value representing if track is explicit or
+                          not.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>_id</td>
+                        <td>string</td>
+                        <td>The MusicMix ID for the track.</td>
+                      </tr>
+                      <tr>
+                        <td>artist</td>
+                        <td>string</td>
+                        <td>The name of artist for the track.</td>
+                      </tr>
+                      <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>The name of the track.</td>
+                      </tr>
+                      <tr>
+                        <td>url</td>
+                        <td>string</td>
+                        <td>The link for the track.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="col-lg-6 right">
+                  <code>
+                    &#123;<br />
+                    "response": &#123;<br />
+                    "top": [<br />
+                    &#123;<br />
+                    "_id": "5de78aef53973808c55bbc42",<br />
+                    "name": "Editors top 15",<br />
+                    "description": "Top 15 songs by editors choice",<br />
+                    "image": "http://api.music-mix.live/uploads/images/1575455471106Editos.jpg",<br />
+                    "trakCount": 15,<br />
+                    "tracks": [<br />
+                    &#123;<br />
+                    "artist_id": [
+                        "5de79d4f53973808c55bbc65"
+                    ],<br />
+                    "artist": [
+                        "Miyagi &amp; Andy Panda "
+                    ],<br />
+                    "genres": [
+                        "Hip Hop, Rap"
+                    ],<br />
+                    "explicit": true,<br />
+                    "_id": "5de8d3ca45c9150dbcdf5c63",<br />
+                    "name": "I Got Love",<br />
+                    "url": "../uploads/songs/1575539615568Miyagi_Endshpiel-I_Got_Love.mp3"<br />
+                    &#125;,<br />
+                    &#123;<br />
+                    "artist_id": [
+                        "5daeea8cab857c13f936980f"
+                    ],<br />
+                    "artist": [
+                        "Eminem"
+                    ],<br />
+                    "genres": [
+                        "Rap, Hip Hop"
+                    ],<br />
+                    "explicit": true,<br />
+                    "_id": "5daf0114ab857c13f9369843",<br />
+                    "name": "Till I Collapse",<br />
+                    "url": "../uploads/songs/1571750117987Eminem-feat-nate-dogg-Till-i-collapse.mp3"<br />
+                    &#125;,<br />
+                    ...<br />
+                    ]<br />
+                    &#125;
+                    ]<br />
+                    &#125;
+                &#125;
+                  </code>
+                </div>
+              </div>
+              <div className="sepereate"></div>
+              <br />
+              <h4 id="user-playlists">User Playlists</h4>
+              <br />
+              <div className="row">
+                <div className="col-lg-6 left">
+                  <h5>GET User Playlists</h5>
                   <em>To get all the playlists for the user use userID:</em>
                   <br />
                   <code className="language-curl-command">
@@ -1747,7 +1871,7 @@ const Api = () => {
                       <tr>
                         <td>user_id</td>
                         <td>string</td>
-                        <td>The MusicMix ID of hte user.</td>
+                        <td>The MusicMix ID of the user.</td>
                       </tr>
                       <tr>
                         <td>name</td>
@@ -1812,7 +1936,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="get-user-playlist-tracks">GET Playlist Tracks</h5>
+                  <h5>GET Playlist Tracks</h5>
                   <em>
                     To get all the tracks for the playlist of the user, use
                     userID and playlistID:
@@ -1836,9 +1960,7 @@ const Api = () => {
                         <td>playlist</td>
                         <td>playlist array</td>
                         <td>
-                          Playlist array holds information about playlist. See
-                          more{" "}
-                          <a href="#get-user-playlists">GET User Playlists</a>.
+                          Playlist array holds information about playlist.
                         </td>
                       </tr>
                       <tr>
@@ -1929,7 +2051,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="post-user-playlist">POST User Playlist</h5>
+                  <h5>POST User Playlist</h5>
                   <em>
                     To create a playlist for the user, use body parameters and
                     userID:
@@ -1989,7 +2111,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="patch-user-playlist">PATCH User Playlist</h5>
+                  <h5>PATCH User Playlist</h5>
                   <em>
                     To edit a playlist for the user, use body parameters,
                     playlistID and userID:
@@ -2049,7 +2171,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="remove-playlist-track">Add Track to Playlist</h5>
+                  <h5>Add Track to Playlist</h5>
                   <em>
                     To add a track to the playlist for the user, use body
                     parameters, playlistID and userID:
@@ -2090,7 +2212,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="remove-playlist-track">Remove Playlist Track</h5>
+                  <h5>Remove Playlist Track</h5>
                   <em>
                     To remove a track from the playlist for the user, use body
                     parameters, playlistID and userID:
@@ -2131,7 +2253,7 @@ const Api = () => {
               <br />
               <div className="row">
                 <div className="col-lg-6 left">
-                  <h5 id="delete-user-playlist">DELETE User Playlist</h5>
+                  <h5>DELETE User Playlist</h5>
                   <em>
                     To delete a playlist for the user, playlistID and userID:
                   </em>
