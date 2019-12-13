@@ -1,0 +1,42 @@
+.submenuHelp {
+  font-size: 0.8rem;
+  line-height: 0.4rem;
+}
+
+.HomePageGifs {
+  width: 80%;
+  height: 70%;
+  border: 2px solid #00cccc;
+}
+
+.AllPasswordErrors {
+  max-width: 1600px;
+}
+
+.PasswordErrors {
+  margin-bottom: 2rem;
+}
+
+.PasswordErrors p {
+  height: 5rem;
+  overflow-wrap: break-word;
+}
+
+.HelpPageImg {
+  max-height: 400px;
+  height: 40%;
+  width: 50%;
+  max-width: 500px;;
+}
+
+.MusicPlayerImg {
+  width: 80%;
+  max-width: 1300px;
+  height: 70%;
+}
+
+.PassErrImg {
+  border: 2px solid #00cccc;
+  height: 20rem;
+  width: 15rem;
+}
