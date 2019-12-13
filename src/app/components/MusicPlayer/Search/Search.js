@@ -56,15 +56,18 @@ class Search extends React.Component {
         // If response ok, set response data to state object
         if (res.status === 200) {
           this.setState({
+            searchFailed: false,
             songs: res.data.tracks,
             songsList: res.data.tracks.map(tracks => tracks.url)
           });
+          console.log(this.state.searchFailed)
         }
       })
       .catch(error => {
         // If response failed set state "searchFailed" to true
         this.setState({ searchFailed: true });
         console.log("error " + error);
+        console.log(this.state.searchFailed)
       });
   };
 
@@ -219,8 +222,11 @@ class Search extends React.Component {
               </button>
             </div>
             <br />
+            <div style={{ display: this.state.searchFailed ? "block" : "none" }}>
+              <p className="noResult">Sorry, no results were found.</p>
+            </div>
             {/* Div for showing fetched data*/}
-            <div id="SearchResults">
+            <div id="SearchResults" style={{ display: this.state.searchFailed ? "none" : "block" }}>
               {this.state.songs.map(searchSongs => (
                 <span className="row searchSongs" key={searchSongs._id} style={{
                   background: searchSongs._id === this.state.song_id ? "#005766" : "none"

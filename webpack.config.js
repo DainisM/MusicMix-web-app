@@ -28,7 +28,17 @@ var config = {
         }
       },
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.(png|jpg)$/, loader: "url-loader?limit=8192" },
+      { 
+        test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[path][name]-[hash:8].[ext]"
+            }
+          }
+        ]
+      },
       {
         test: /\.mp3$/,
         loader: "file-loader",

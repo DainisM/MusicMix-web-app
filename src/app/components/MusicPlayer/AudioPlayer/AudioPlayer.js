@@ -6,7 +6,8 @@ import {
   faPause,
   faPlay,
   faVolumeUp,
-  faVolumeDown
+  faVolumeDown,
+  faRedo
 } from "@fortawesome/free-solid-svg-icons";
 import "./AudioPlayer.css";
 
@@ -16,9 +17,10 @@ class AudioPlayer extends React.Component {
 
     //State objects
     this.state = {
-      playing: false,
+      playing: true,
       progress: 0,
-      set_progress_mode: false
+      set_progress_mode: false,
+      loop: false
     };
 
     //Properties
@@ -88,6 +90,12 @@ class AudioPlayer extends React.Component {
     this.player.volume = this.volumeBar.value / 100;
   }
 
+  //Method which toggles between state loop values
+  //Used to set song on loop
+  setLoop = () => {
+    this.setState({ loop: !this.state.loop })
+  }
+
   render() {
     var currentTime = 0;
     var totalTime = 0;
@@ -135,6 +143,9 @@ class AudioPlayer extends React.Component {
             </a>
             <a onClick={this.props.onNext}>
               <FontAwesomeIcon icon={faForward} />
+            </a>
+            <a id="repeatBtn" onClick={this.setLoop} style={{ backgroundColor: this.state.loop ? "#005766" : "inherit" }}>
+              <FontAwesomeIcon icon={faRedo} />
             </a>
           </div>
 
@@ -196,6 +207,7 @@ class AudioPlayer extends React.Component {
           src={this.props.src}
           autoPlay={this.state.playing}
           type="audio/ogg"
+          loop={this.state.loop}
         />
       </div>
     );

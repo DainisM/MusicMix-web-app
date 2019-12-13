@@ -107,6 +107,10 @@
   color: #00cccc;
 }
 
+.homePage-link {
+  font-size: 0.8rem;
+}
+
 /*-----MusicPlayer top navigartion bar styling-----*/
 .MusicplayerTopNav {
   margin: 1rem 0 1rem 0;

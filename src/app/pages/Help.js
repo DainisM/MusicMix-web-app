@@ -10,17 +10,21 @@ class Help extends React.Component {
     return (
       <DefaultLayout>
         <div className="wrap-content">
+          {/*Calling for Top and Side navigation components */}
           <SideNavHelp />
           <TopNavHelp />
+          {/*Main div of the Help page */}
           <div className="main">
             <section className="container-fluid">
               <div className="col-lg-12">
+                {/*Help section */}
                 <h3 id="help">Help</h3>
                 <p>Welcome to Help page. Here you can find some tips-n-tricks, guides and help on how to use our MusicMix services.</p>
                 <p>If you have stumbled on Help page by accident that's fine too, but if you are curious and have some questions
                   feel free to explore this page to clarify your questions and enrich your experience using MusicMix.</p>
                 <div className="sepereate"></div>
 
+                {/*Account section with signup and login guides and gifs*/}
                 <h3 id="account">Account</h3>
                 <p>First things first... to fully experience MusicMix services, one must have an account.</p>
                 <h5 id="signup">Sign up</h5>
@@ -60,6 +64,7 @@ class Help extends React.Component {
                 />
                 <div className="sepereate"></div>
 
+                {/*Profile section with seeing and editing profile and changing password guides and gifs*/}
                 <h3 id="profile">Profile</h3>
                 <p>Under <i>Profile</i> you can see your account (profile) information, edit profile and change password.</p>
                 <h5 id="see-profile">See profile</h5>
@@ -114,6 +119,7 @@ class Help extends React.Component {
                 />
                 <div className="sepereate"></div>
 
+                {/*Music player section with guides and gifs about music player components/functions*/}
                 <h3 id="music-player">Music player</h3>
                 <p>To access music player and all the songs, playlists and much more you need to be logged ind. See <a href="#login">Login</a>.</p>
                 <p>When you open music player you should see this:</p>
@@ -169,9 +175,11 @@ class Help extends React.Component {
                   <li>Decrease volume</li>
                   <li>Go to previous song</li>
                   <li>Go to next song</li>
+                  <li>Set song on repeat</li>
                 </ul>
                 <p>You can increase or decrease volume simply by clicking on volume bar or clicking and dragging.</p>
                 <p>To rewind or fast forward a song you also can just click on progress bar ot click and drag.</p>
+                <p>To set song on repeat you simply click on <i>Repeat</i> button located after <i>Next</i> button in audio player.</p>
                 <p><i>See example:</i></p>
                 <GifPlayer className="HomePageGifs"
                   gif={require("../gifs/ControlSong.gif")}

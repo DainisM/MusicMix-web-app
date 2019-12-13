@@ -17,6 +17,12 @@
   border-radius: 20px;
 }
 
+/*Search error message*/
+.noResult {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 /* Search button*/
 #SearchBtn {
   color: #005766;

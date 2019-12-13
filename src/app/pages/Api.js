@@ -22,10 +22,11 @@ const Api = () => {
               </p>
               <p>
                 Web API also provides access to user related data, like
-                playlists and music that the user saves in the Your Music
-                library. Such access is enabled through selective authorization,
+                playlists and music that the user saves in the their playlists.
+                Such access is enabled through selective authorization,
                 by the user.
               </p>
+              <div className="sepereate"></div>
               <h3 id="requests">Requests</h3>
               <p>
                 The MusicMix API is based on REST principles. Data resources are

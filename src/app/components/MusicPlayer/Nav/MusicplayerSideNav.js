@@ -48,6 +48,9 @@ const MusicplayerSideNav = () => {
           {localStorage.getItem("userName")}
         </a>
         <br />
+        <br />
+        <a className="homePage-link" href="/">Back to Home page</a>
+        <br />
         {/*If there is no userId in localStorage this "Logout" button will be shown*/}
         <a href="/">
           <button
