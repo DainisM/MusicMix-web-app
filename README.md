@@ -8,12 +8,12 @@ I have chosen to work with ReactJS because I had some experience with JavaScript
 
 _Here is a home page screenshot:_
 
-![](RackMultipart20200918-4-pku3yp_html_75aa0d4d3906c720.jpg)
+![](https://github.com/DainisM/Screenshots/blob/master/HomePage-0.jpg)
 
-_Music player (Genres) page screenshot:_
+_Music player page screenshot:_
 
-![](RackMultipart20200918-4-pku3yp_html_fff3484a17570c0b.jpg)
+![](https://github.com/DainisM/Screenshots/blob/master/MusicPlayer-1.jpg)
 
 _Music player (Listening to song):_
 
-![](RackMultipart20200918-4-pku3yp_html_6b906533c24b8a19.jpg)
+![](https://github.com/DainisM/Screenshots/blob/master/MusicPlayer-17.jpg)
